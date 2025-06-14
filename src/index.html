@@ -1,562 +1,831 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <title>
+      Readabled - Online Language Learning and intervention App for Dyslexic
+      Children
+    </title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <title>Readabled - Online Language Learning and intervention App for Dyslexic Children</title>
-
-  <!-- Crisp Integration Code -->
-  <script type="text/javascript">
-    window.$crisp = []
-    window.CRISP_WEBSITE_ID = "ed2260b9-aade-45cb-a71d-c5895b6b9177"
-      ; (function () {
+    <!-- Crisp Integration Code -->
+    <script type="text/javascript">
+      window.$crisp = []
+      window.CRISP_WEBSITE_ID = "ed2260b9-aade-45cb-a71d-c5895b6b9177"
+      ;(function () {
         d = document
         s = d.createElement("script")
         s.src = "https://client.crisp.chat/l.js"
         s.async = 1
         d.getElementsByTagName("head")[0].appendChild(s)
       })()
-  </script>
-</head>
+    </script>
+  </head>
 
-<body x-data="
+  <body
+    x-data="
       {
         scrolledFromTop: false
       }
-    " x-init="window.pageYOffset >= 50 ? scrolledFromTop = true : scrolledFromTop = false"
-  @scroll.window="window.pageYOffset >= 50 ? scrolledFromTop = true : scrolledFromTop = false"
-  class="bg-white dark:bg-dark">
-  <!-- ===== Header start ===== -->
-  <header x-data="
+    "
+    x-init="window.pageYOffset >= 50 ? scrolledFromTop = true : scrolledFromTop = false"
+    @scroll.window="window.pageYOffset >= 50 ? scrolledFromTop = true : scrolledFromTop = false"
+    class="bg-white dark:bg-dark"
+  >
+    <!-- ===== Header start ===== -->
+    <header
+      x-data="
         {
           navbarOpen: false,
           dropdownOpen: false
         }
       "
-    :class="scrolledFromTop ? 'bg-white dark:bg-dark bg-opacity-80 dark:bg-opacity-80 shadow-sticky backdrop-blur-sm' : 'bg-white dark:bg-dark' "
-    class="w-full flex items-center sticky top-0 z-50 wow fadeInUp" data-wow-delay=".2s">
-    <div class="container">
-      <div class="flex -mx-4 items-center justify-between relative">
-        <div class="px-4 w-30 max-w-full">
-          <a href="index.html" :class="scrolledFromTop ? 'py-5 lg:py-2' : 'py-7 lg:py-5' " class="w-full block">
-            <div class="flex items-center gap-2">
-              <img src="images/readabled-logo.png" alt="logo" class="w-24" />
-              <p class="text-3xl font-extrabold text-[#333] dark:hidden">Readabled.</p>
-              <p class="text-3xl font-extrabold text-[#fff] hidden dark:block">Readabled.</p>
-            </div>
-          </a>
-        </div>
-        <div class="flex px-4 justify-end items-center w-full">
-          <div>
-            <button @click="navbarOpen = !navbarOpen" :class="navbarOpen && 'navbarTogglerActive' " id="navbarToggler"
-              class="block absolute right-4 top-1/2 -translate-y-1/2 lg:hidden focus:ring-2 ring-primary px-3 py-[6px] rounded-lg">
-              <span :class="navbarOpen && 'rotate-45 top-[7px]' "
-                class="relative w-[30px] h-[2px] my-[6px] block bg-black dark:bg-white"></span>
-              <span :class="navbarOpen && 'opacity-0' "
-                class="relative w-[30px] h-[2px] my-[6px] block bg-black dark:bg-white"></span>
-              <span :class="navbarOpen && 'top-[-8px] rotate-[135deg]' "
-                class="relative w-[30px] h-[2px] my-[6px] block bg-black dark:bg-white"></span>
-            </button>
-            <nav :class="!navbarOpen && 'hidden' " id="navbarCollapse"
-              class="absolute py-4 lg:py-0 px-6 bg-white dark:bg-black shadow rounded-lg max-w-[250px] w-full lg:bg-transparent dark:lg:bg-transparent lg:max-w-full lg:w-full right-4 top-full lg:block lg:static lg:shadow-none">
-              <ul class="blcok lg:flex">
-                <li>
-                  <a href="#features" :class="scrolledFromTop ? 'py-2 lg:py-6' : 'py-2 lg:py-8' "
-                    class="scroll-menu text-base font-medium text-body-color hover:text-primary lg:inline-flex flex lg:ml-8 xl:ml-12">
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a href="#about" :class="scrolledFromTop ? 'py-2 lg:py-6' : 'py-2 lg:py-8' "
-                    class="scroll-menu text-base font-medium text-body-color hover:text-primary lg:inline-flex flex lg:ml-8 xl:ml-12">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#contact" :class="scrolledFromTop ? 'py-2 lg:py-6' : 'py-2 lg:py-8' "
-                    class="scroll-menu text-base font-medium text-body-color hover:text-primary lg:inline-flex flex lg:ml-8 xl:ml-12">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </nav>
+      :class="scrolledFromTop ? 'bg-white dark:bg-dark bg-opacity-80 dark:bg-opacity-80 shadow-sticky backdrop-blur-sm' : 'bg-white dark:bg-dark' "
+      class="w-full flex items-center sticky top-0 z-50 wow fadeInUp"
+      data-wow-delay=".2s"
+    >
+      <div class="container">
+        <div class="flex -mx-4 items-center justify-between relative">
+          <div class="px-4 w-30 max-w-full">
+            <a
+              href="index.html"
+              :class="scrolledFromTop ? 'py-5 lg:py-2' : 'py-7 lg:py-5' "
+              class="w-full block"
+            >
+              <div class="flex items-center gap-2">
+                <img src="images/readabled-logo.png" alt="logo" class="w-24" />
+                <p class="text-3xl font-extrabold text-[#333] dark:hidden">
+                  Readabled.
+                </p>
+                <p
+                  class="text-3xl font-extrabold text-[#fff] hidden dark:block"
+                >
+                  Readabled.
+                </p>
+              </div>
+            </a>
           </div>
-          <div class="xl:pl-20 md:flex justify-end hidden pr-16 lg:pr-0">
-            <!-- <p class="flex items-center justify-center text-base font-medium text-white bg-primary rounded-lg py-3 px-7 transition-all"
+          <div class="flex px-4 justify-end items-center w-full">
+            <div>
+              <button
+                @click="navbarOpen = !navbarOpen"
+                :class="navbarOpen && 'navbarTogglerActive' "
+                id="navbarToggler"
+                class="block absolute right-4 top-1/2 -translate-y-1/2 lg:hidden focus:ring-2 ring-primary px-3 py-[6px] rounded-lg"
+              >
+                <span
+                  :class="navbarOpen && 'rotate-45 top-[7px]' "
+                  class="relative w-[30px] h-[2px] my-[6px] block bg-black dark:bg-white"
+                ></span>
+                <span
+                  :class="navbarOpen && 'opacity-0' "
+                  class="relative w-[30px] h-[2px] my-[6px] block bg-black dark:bg-white"
+                ></span>
+                <span
+                  :class="navbarOpen && 'top-[-8px] rotate-[135deg]' "
+                  class="relative w-[30px] h-[2px] my-[6px] block bg-black dark:bg-white"
+                ></span>
+              </button>
+              <nav
+                :class="!navbarOpen && 'hidden' "
+                id="navbarCollapse"
+                class="absolute py-4 lg:py-0 px-6 bg-white dark:bg-black shadow rounded-lg max-w-[250px] w-full lg:bg-transparent dark:lg:bg-transparent lg:max-w-full lg:w-full right-4 top-full lg:block lg:static lg:shadow-none"
+              >
+                <ul class="blcok lg:flex">
+                  <li>
+                    <a
+                      href="#features"
+                      :class="scrolledFromTop ? 'py-2 lg:py-6' : 'py-2 lg:py-8' "
+                      class="scroll-menu text-base font-medium text-body-color hover:text-primary lg:inline-flex flex lg:ml-8 xl:ml-12"
+                    >
+                      Features
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#about"
+                      :class="scrolledFromTop ? 'py-2 lg:py-6' : 'py-2 lg:py-8' "
+                      class="scroll-menu text-base font-medium text-body-color hover:text-primary lg:inline-flex flex lg:ml-8 xl:ml-12"
+                    >
+                      About
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#contact"
+                      :class="scrolledFromTop ? 'py-2 lg:py-6' : 'py-2 lg:py-8' "
+                      class="scroll-menu text-base font-medium text-body-color hover:text-primary lg:inline-flex flex lg:ml-8 xl:ml-12"
+                    >
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="xl:pl-20 md:flex justify-end hidden pr-16 lg:pr-0">
+              <!-- <p class="flex items-center justify-center text-base font-medium text-white bg-primary rounded-lg py-3 px-7 transition-all"
               aria-disabled="true">
               Launcing Soon!
             </p> -->
-            <a href="https://app.readabled.com/" target="_blank"
-              class="text-base font-bold text-white bg-primary rounded-xl py-4 px-10 transition-all hover:shadow-primary-hover mr-9">
-              Visit the App
-            </a>
-            <div>
-              <label for="darkToggler"
-                class="cursor-pointer w-9 h-9 md:w-14 md:h-14 rounded-full flex items-center justify-center bg-gray-2 dark:bg-dark-bg text-black dark:text-white">
-                <input type="checkbox" name="darkToggler" id="darkToggler" class="sr-only" aria-label="darkToggler" />
-                <svg viewBox="0 0 23 23" class="stroke-current dark:hidden w-5 h-5 md:w-6 md:h-6" fill="none">
-                  <path
-                    d="M9.55078 1.5C5.80078 1.5 1.30078 5.25 1.30078 11.25C1.30078 17.25 5.80078 21.75 11.8008 21.75C17.8008 21.75 21.5508 17.25 21.5508 13.5C13.3008 18.75 4.30078 9.75 9.55078 1.5Z"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                <svg viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                  class="hidden dark:block w-5 h-5 md:w-6 md:h-6">
-                  <mask id="path-1-inside-1_977:1934" fill="white">
+              <a
+                href="https://app.readabled.com/"
+                target="_blank"
+                class="text-base font-bold text-white bg-primary rounded-xl py-4 px-10 transition-all hover:shadow-primary-hover mr-9"
+              >
+                Visit the App
+              </a>
+              <div>
+                <label
+                  for="darkToggler"
+                  class="cursor-pointer w-9 h-9 md:w-14 md:h-14 rounded-full flex items-center justify-center bg-gray-2 dark:bg-dark-bg text-black dark:text-white"
+                >
+                  <input
+                    type="checkbox"
+                    name="darkToggler"
+                    id="darkToggler"
+                    class="sr-only"
+                    aria-label="darkToggler"
+                  />
+                  <svg
+                    viewBox="0 0 23 23"
+                    class="stroke-current dark:hidden w-5 h-5 md:w-6 md:h-6"
+                    fill="none"
+                  >
                     <path
-                      d="M12.0508 16.5C10.8573 16.5 9.71271 16.0259 8.8688 15.182C8.02489 14.3381 7.55078 13.1935 7.55078 12C7.55078 10.8065 8.02489 9.66193 8.8688 8.81802C9.71271 7.97411 10.8573 7.5 12.0508 7.5C13.2443 7.5 14.3888 7.97411 15.2328 8.81802C16.0767 9.66193 16.5508 10.8065 16.5508 12C16.5508 13.1935 16.0767 14.3381 15.2328 15.182C14.3888 16.0259 13.2443 16.5 12.0508 16.5ZM12.0508 18C13.6421 18 15.1682 17.3679 16.2934 16.2426C17.4186 15.1174 18.0508 13.5913 18.0508 12C18.0508 10.4087 17.4186 8.88258 16.2934 7.75736C15.1682 6.63214 13.6421 6 12.0508 6C10.4595 6 8.93336 6.63214 7.80814 7.75736C6.68292 8.88258 6.05078 10.4087 6.05078 12C6.05078 13.5913 6.68292 15.1174 7.80814 16.2426C8.93336 17.3679 10.4595 18 12.0508 18ZM12.0508 0C12.2497 0 12.4405 0.0790176 12.5811 0.21967C12.7218 0.360322 12.8008 0.551088 12.8008 0.75V3.75C12.8008 3.94891 12.7218 4.13968 12.5811 4.28033C12.4405 4.42098 12.2497 4.5 12.0508 4.5C11.8519 4.5 11.6611 4.42098 11.5205 4.28033C11.3798 4.13968 11.3008 3.94891 11.3008 3.75V0.75C11.3008 0.551088 11.3798 0.360322 11.5205 0.21967C11.6611 0.0790176 11.8519 0 12.0508 0V0ZM12.0508 19.5C12.2497 19.5 12.4405 19.579 12.5811 19.7197C12.7218 19.8603 12.8008 20.0511 12.8008 20.25V23.25C12.8008 23.4489 12.7218 23.6397 12.5811 23.7803C12.4405 23.921 12.2497 24 12.0508 24C11.8519 24 11.6611 23.921 11.5205 23.7803C11.3798 23.6397 11.3008 23.4489 11.3008 23.25V20.25C11.3008 20.0511 11.3798 19.8603 11.5205 19.7197C11.6611 19.579 11.8519 19.5 12.0508 19.5ZM24.0508 12C24.0508 12.1989 23.9718 12.3897 23.8311 12.5303C23.6905 12.671 23.4997 12.75 23.3008 12.75H20.3008C20.1019 12.75 19.9111 12.671 19.7705 12.5303C19.6298 12.3897 19.5508 12.1989 19.5508 12C19.5508 11.8011 19.6298 11.6103 19.7705 11.4697C19.9111 11.329 20.1019 11.25 20.3008 11.25H23.3008C23.4997 11.25 23.6905 11.329 23.8311 11.4697C23.9718 11.6103 24.0508 11.8011 24.0508 12ZM4.55078 12C4.55078 12.1989 4.47176 12.3897 4.33111 12.5303C4.19046 12.671 3.99969 12.75 3.80078 12.75H0.800781C0.601869 12.75 0.411103 12.671 0.270451 12.5303C0.129799 12.3897 0.0507813 12.1989 0.0507812 12C0.0507813 11.8011 0.129799 11.6103 0.270451 11.4697C0.411103 11.329 0.601869 11.25 0.800781 11.25H3.80078C3.99969 11.25 4.19046 11.329 4.33111 11.4697C4.47176 11.6103 4.55078 11.8011 4.55078 12ZM20.5363 3.5145C20.6769 3.65515 20.7559 3.84588 20.7559 4.04475C20.7559 4.24362 20.6769 4.43435 20.5363 4.575L18.4153 6.6975C18.3455 6.76713 18.2628 6.82235 18.1717 6.86C18.0806 6.89765 17.983 6.91699 17.8845 6.91692C17.6855 6.91678 17.4947 6.83758 17.354 6.69675C17.2844 6.62702 17.2292 6.54425 17.1915 6.45318C17.1539 6.36211 17.1345 6.26452 17.1346 6.16597C17.1348 5.96695 17.214 5.77613 17.3548 5.6355L19.4758 3.5145C19.6164 3.3739 19.8072 3.29491 20.006 3.29491C20.2049 3.29491 20.3956 3.3739 20.5363 3.5145ZM6.74678 17.304C6.88738 17.4446 6.96637 17.6354 6.96637 17.8342C6.96637 18.0331 6.88738 18.2239 6.74678 18.3645L4.62578 20.4855C4.48433 20.6221 4.29488 20.6977 4.09823 20.696C3.90158 20.6943 3.71347 20.6154 3.57442 20.4764C3.43536 20.3373 3.35648 20.1492 3.35478 19.9526C3.35307 19.7559 3.42866 19.5665 3.56528 19.425L5.68628 17.304C5.82693 17.1634 6.01766 17.0844 6.21653 17.0844C6.4154 17.0844 6.60614 17.1634 6.74678 17.304ZM20.5363 20.4855C20.3956 20.6261 20.2049 20.7051 20.006 20.7051C19.8072 20.7051 19.6164 20.6261 19.4758 20.4855L17.3548 18.3645C17.2182 18.223 17.1426 18.0336 17.1443 17.8369C17.146 17.6403 17.2249 17.4522 17.3639 17.3131C17.503 17.1741 17.6911 17.0952 17.8877 17.0935C18.0844 17.0918 18.2738 17.1674 18.4153 17.304L20.5363 19.425C20.6769 19.5656 20.7559 19.7564 20.7559 19.9552C20.7559 20.1541 20.6769 20.3449 20.5363 20.4855ZM6.74678 6.6975C6.60614 6.8381 6.4154 6.91709 6.21653 6.91709C6.01766 6.91709 5.82693 6.8381 5.68628 6.6975L3.56528 4.575C3.49365 4.50582 3.43651 4.42306 3.39721 4.33155C3.3579 4.24005 3.33721 4.14164 3.33634 4.04205C3.33548 3.94247 3.35445 3.84371 3.39216 3.75153C3.42988 3.65936 3.48557 3.57562 3.55598 3.5052C3.6264 3.43478 3.71014 3.37909 3.80232 3.34138C3.89449 3.30367 3.99325 3.2847 4.09283 3.28556C4.19242 3.28643 4.29083 3.30712 4.38233 3.34642C4.47384 3.38573 4.5566 3.44287 4.62578 3.5145L6.74678 5.6355C6.81663 5.70517 6.87204 5.78793 6.90985 5.87905C6.94766 5.97017 6.96712 6.06785 6.96712 6.1665C6.96712 6.26515 6.94766 6.36283 6.90985 6.45395C6.87204 6.54507 6.81663 6.62783 6.74678 6.6975Z" />
-                  </mask>
-                  <path
-                    d="M12.0508 16.5C10.8573 16.5 9.71271 16.0259 8.8688 15.182C8.02489 14.3381 7.55078 13.1935 7.55078 12C7.55078 10.8065 8.02489 9.66193 8.8688 8.81802C9.71271 7.97411 10.8573 7.5 12.0508 7.5C13.2443 7.5 14.3888 7.97411 15.2328 8.81802C16.0767 9.66193 16.5508 10.8065 16.5508 12C16.5508 13.1935 16.0767 14.3381 15.2328 15.182C14.3888 16.0259 13.2443 16.5 12.0508 16.5ZM12.0508 18C13.6421 18 15.1682 17.3679 16.2934 16.2426C17.4186 15.1174 18.0508 13.5913 18.0508 12C18.0508 10.4087 17.4186 8.88258 16.2934 7.75736C15.1682 6.63214 13.6421 6 12.0508 6C10.4595 6 8.93336 6.63214 7.80814 7.75736C6.68292 8.88258 6.05078 10.4087 6.05078 12C6.05078 13.5913 6.68292 15.1174 7.80814 16.2426C8.93336 17.3679 10.4595 18 12.0508 18ZM12.0508 0C12.2497 0 12.4405 0.0790176 12.5811 0.21967C12.7218 0.360322 12.8008 0.551088 12.8008 0.75V3.75C12.8008 3.94891 12.7218 4.13968 12.5811 4.28033C12.4405 4.42098 12.2497 4.5 12.0508 4.5C11.8519 4.5 11.6611 4.42098 11.5205 4.28033C11.3798 4.13968 11.3008 3.94891 11.3008 3.75V0.75C11.3008 0.551088 11.3798 0.360322 11.5205 0.21967C11.6611 0.0790176 11.8519 0 12.0508 0V0ZM12.0508 19.5C12.2497 19.5 12.4405 19.579 12.5811 19.7197C12.7218 19.8603 12.8008 20.0511 12.8008 20.25V23.25C12.8008 23.4489 12.7218 23.6397 12.5811 23.7803C12.4405 23.921 12.2497 24 12.0508 24C11.8519 24 11.6611 23.921 11.5205 23.7803C11.3798 23.6397 11.3008 23.4489 11.3008 23.25V20.25C11.3008 20.0511 11.3798 19.8603 11.5205 19.7197C11.6611 19.579 11.8519 19.5 12.0508 19.5ZM24.0508 12C24.0508 12.1989 23.9718 12.3897 23.8311 12.5303C23.6905 12.671 23.4997 12.75 23.3008 12.75H20.3008C20.1019 12.75 19.9111 12.671 19.7705 12.5303C19.6298 12.3897 19.5508 12.1989 19.5508 12C19.5508 11.8011 19.6298 11.6103 19.7705 11.4697C19.9111 11.329 20.1019 11.25 20.3008 11.25H23.3008C23.4997 11.25 23.6905 11.329 23.8311 11.4697C23.9718 11.6103 24.0508 11.8011 24.0508 12ZM4.55078 12C4.55078 12.1989 4.47176 12.3897 4.33111 12.5303C4.19046 12.671 3.99969 12.75 3.80078 12.75H0.800781C0.601869 12.75 0.411103 12.671 0.270451 12.5303C0.129799 12.3897 0.0507813 12.1989 0.0507812 12C0.0507813 11.8011 0.129799 11.6103 0.270451 11.4697C0.411103 11.329 0.601869 11.25 0.800781 11.25H3.80078C3.99969 11.25 4.19046 11.329 4.33111 11.4697C4.47176 11.6103 4.55078 11.8011 4.55078 12ZM20.5363 3.5145C20.6769 3.65515 20.7559 3.84588 20.7559 4.04475C20.7559 4.24362 20.6769 4.43435 20.5363 4.575L18.4153 6.6975C18.3455 6.76713 18.2628 6.82235 18.1717 6.86C18.0806 6.89765 17.983 6.91699 17.8845 6.91692C17.6855 6.91678 17.4947 6.83758 17.354 6.69675C17.2844 6.62702 17.2292 6.54425 17.1915 6.45318C17.1539 6.36211 17.1345 6.26452 17.1346 6.16597C17.1348 5.96695 17.214 5.77613 17.3548 5.6355L19.4758 3.5145C19.6164 3.3739 19.8072 3.29491 20.006 3.29491C20.2049 3.29491 20.3956 3.3739 20.5363 3.5145ZM6.74678 17.304C6.88738 17.4446 6.96637 17.6354 6.96637 17.8342C6.96637 18.0331 6.88738 18.2239 6.74678 18.3645L4.62578 20.4855C4.48433 20.6221 4.29488 20.6977 4.09823 20.696C3.90158 20.6943 3.71347 20.6154 3.57442 20.4764C3.43536 20.3373 3.35648 20.1492 3.35478 19.9526C3.35307 19.7559 3.42866 19.5665 3.56528 19.425L5.68628 17.304C5.82693 17.1634 6.01766 17.0844 6.21653 17.0844C6.4154 17.0844 6.60614 17.1634 6.74678 17.304ZM20.5363 20.4855C20.3956 20.6261 20.2049 20.7051 20.006 20.7051C19.8072 20.7051 19.6164 20.6261 19.4758 20.4855L17.3548 18.3645C17.2182 18.223 17.1426 18.0336 17.1443 17.8369C17.146 17.6403 17.2249 17.4522 17.3639 17.3131C17.503 17.1741 17.6911 17.0952 17.8877 17.0935C18.0844 17.0918 18.2738 17.1674 18.4153 17.304L20.5363 19.425C20.6769 19.5656 20.7559 19.7564 20.7559 19.9552C20.7559 20.1541 20.6769 20.3449 20.5363 20.4855ZM6.74678 6.6975C6.60614 6.8381 6.4154 6.91709 6.21653 6.91709C6.01766 6.91709 5.82693 6.8381 5.68628 6.6975L3.56528 4.575C3.49365 4.50582 3.43651 4.42306 3.39721 4.33155C3.3579 4.24005 3.33721 4.14164 3.33634 4.04205C3.33548 3.94247 3.35445 3.84371 3.39216 3.75153C3.42988 3.65936 3.48557 3.57562 3.55598 3.5052C3.6264 3.43478 3.71014 3.37909 3.80232 3.34138C3.89449 3.30367 3.99325 3.2847 4.09283 3.28556C4.19242 3.28643 4.29083 3.30712 4.38233 3.34642C4.47384 3.38573 4.5566 3.44287 4.62578 3.5145L6.74678 5.6355C6.81663 5.70517 6.87204 5.78793 6.90985 5.87905C6.94766 5.97017 6.96712 6.06785 6.96712 6.1665C6.96712 6.26515 6.94766 6.36283 6.90985 6.45395C6.87204 6.54507 6.81663 6.62783 6.74678 6.6975Z"
-                    fill="black" stroke="white" stroke-width="2" mask="url(#path-1-inside-1_977:1934)" />
-                </svg>
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- ===== Header end ===== -->
-
-  <!-- ===== Hero Start ===== -->
-  <section id="home">
-    <div
-      class="bg-gradient-to-l from-gradient-1 to-gradient-2 dark:from-[#3c3e56] dark:to-black rounded-[20px] py-16 mx-4 2xl:mx-[60px] pl-6 lg:pl-10">
-      <div class="container">
-        <div class="flex flex-wrap items-center -mx-4">
-          <div class="w-full lg:w-1/2 px-4">
-            <div class="mb-14 lg:mb-0 max-w-[570px] wow fadeInUp" data-wow-delay=".2s">
-              <h1 class="font-bold text-primary text-4xl md:text-[45px] leading-tight md:leading-tight">Readabled
-              </h1>
-              <p
-                class="font-semibold text-black dark:text-white text-xl md:text-[30px] leading-tight md:leading-tight mb-8">
-                Online Language Learning and intervention App for Dyslexic Children </p>
-
-              <p class="font-semibold text-base text-body-color mb-8">
-                A clinically validated intervention app for dyslexic children offering a wide variety of phonetic
-                learning exercises.
-              </p>
-
-              <p class="font-bold text-4xl text-primary mb-12">
-                Start Now!
-              </p>
-              <div class="flex items-center">
-                <a href="https://app.readabled.com/" target="_blank"
-                  class="text-base font-bold text-white bg-primary rounded-xl py-4 px-10 transition-all hover:shadow-primary-hover mr-9">
-                  Visit the App
-                </a>
-
-                <a href="javascript:void(0)"
-                  class="flex items-center font-bold text-base text-black dark:text-white hover:text-primary dark:hover:text-primary group transition-all glightbox">
-                  <span
-                    class="w-[60px] h-[60px] rounded-full inline-flex items-center justify-center bg-primary bg-opacity-10 text-primary mr-5 transition-all group-hover:bg-opacity-100 group-hover:text-white">
-                    <svg width="15" height="18" viewBox="0 0 15 18" class="fill-current">
-                      <path d="M15 9L-8.15666e-07 17.6603L-5.85622e-08 0.339746L15 9Z" />
-                    </svg>
-                  </span>
-                  Watch Intro
-                </a>
+                      d="M9.55078 1.5C5.80078 1.5 1.30078 5.25 1.30078 11.25C1.30078 17.25 5.80078 21.75 11.8008 21.75C17.8008 21.75 21.5508 17.25 21.5508 13.5C13.3008 18.75 4.30078 9.75 9.55078 1.5Z"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <svg
+                    viewBox="0 0 25 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="hidden dark:block w-5 h-5 md:w-6 md:h-6"
+                  >
+                    <mask id="path-1-inside-1_977:1934" fill="white">
+                      <path
+                        d="M12.0508 16.5C10.8573 16.5 9.71271 16.0259 8.8688 15.182C8.02489 14.3381 7.55078 13.1935 7.55078 12C7.55078 10.8065 8.02489 9.66193 8.8688 8.81802C9.71271 7.97411 10.8573 7.5 12.0508 7.5C13.2443 7.5 14.3888 7.97411 15.2328 8.81802C16.0767 9.66193 16.5508 10.8065 16.5508 12C16.5508 13.1935 16.0767 14.3381 15.2328 15.182C14.3888 16.0259 13.2443 16.5 12.0508 16.5ZM12.0508 18C13.6421 18 15.1682 17.3679 16.2934 16.2426C17.4186 15.1174 18.0508 13.5913 18.0508 12C18.0508 10.4087 17.4186 8.88258 16.2934 7.75736C15.1682 6.63214 13.6421 6 12.0508 6C10.4595 6 8.93336 6.63214 7.80814 7.75736C6.68292 8.88258 6.05078 10.4087 6.05078 12C6.05078 13.5913 6.68292 15.1174 7.80814 16.2426C8.93336 17.3679 10.4595 18 12.0508 18ZM12.0508 0C12.2497 0 12.4405 0.0790176 12.5811 0.21967C12.7218 0.360322 12.8008 0.551088 12.8008 0.75V3.75C12.8008 3.94891 12.7218 4.13968 12.5811 4.28033C12.4405 4.42098 12.2497 4.5 12.0508 4.5C11.8519 4.5 11.6611 4.42098 11.5205 4.28033C11.3798 4.13968 11.3008 3.94891 11.3008 3.75V0.75C11.3008 0.551088 11.3798 0.360322 11.5205 0.21967C11.6611 0.0790176 11.8519 0 12.0508 0V0ZM12.0508 19.5C12.2497 19.5 12.4405 19.579 12.5811 19.7197C12.7218 19.8603 12.8008 20.0511 12.8008 20.25V23.25C12.8008 23.4489 12.7218 23.6397 12.5811 23.7803C12.4405 23.921 12.2497 24 12.0508 24C11.8519 24 11.6611 23.921 11.5205 23.7803C11.3798 23.6397 11.3008 23.4489 11.3008 23.25V20.25C11.3008 20.0511 11.3798 19.8603 11.5205 19.7197C11.6611 19.579 11.8519 19.5 12.0508 19.5ZM24.0508 12C24.0508 12.1989 23.9718 12.3897 23.8311 12.5303C23.6905 12.671 23.4997 12.75 23.3008 12.75H20.3008C20.1019 12.75 19.9111 12.671 19.7705 12.5303C19.6298 12.3897 19.5508 12.1989 19.5508 12C19.5508 11.8011 19.6298 11.6103 19.7705 11.4697C19.9111 11.329 20.1019 11.25 20.3008 11.25H23.3008C23.4997 11.25 23.6905 11.329 23.8311 11.4697C23.9718 11.6103 24.0508 11.8011 24.0508 12ZM4.55078 12C4.55078 12.1989 4.47176 12.3897 4.33111 12.5303C4.19046 12.671 3.99969 12.75 3.80078 12.75H0.800781C0.601869 12.75 0.411103 12.671 0.270451 12.5303C0.129799 12.3897 0.0507813 12.1989 0.0507812 12C0.0507813 11.8011 0.129799 11.6103 0.270451 11.4697C0.411103 11.329 0.601869 11.25 0.800781 11.25H3.80078C3.99969 11.25 4.19046 11.329 4.33111 11.4697C4.47176 11.6103 4.55078 11.8011 4.55078 12ZM20.5363 3.5145C20.6769 3.65515 20.7559 3.84588 20.7559 4.04475C20.7559 4.24362 20.6769 4.43435 20.5363 4.575L18.4153 6.6975C18.3455 6.76713 18.2628 6.82235 18.1717 6.86C18.0806 6.89765 17.983 6.91699 17.8845 6.91692C17.6855 6.91678 17.4947 6.83758 17.354 6.69675C17.2844 6.62702 17.2292 6.54425 17.1915 6.45318C17.1539 6.36211 17.1345 6.26452 17.1346 6.16597C17.1348 5.96695 17.214 5.77613 17.3548 5.6355L19.4758 3.5145C19.6164 3.3739 19.8072 3.29491 20.006 3.29491C20.2049 3.29491 20.3956 3.3739 20.5363 3.5145ZM6.74678 17.304C6.88738 17.4446 6.96637 17.6354 6.96637 17.8342C6.96637 18.0331 6.88738 18.2239 6.74678 18.3645L4.62578 20.4855C4.48433 20.6221 4.29488 20.6977 4.09823 20.696C3.90158 20.6943 3.71347 20.6154 3.57442 20.4764C3.43536 20.3373 3.35648 20.1492 3.35478 19.9526C3.35307 19.7559 3.42866 19.5665 3.56528 19.425L5.68628 17.304C5.82693 17.1634 6.01766 17.0844 6.21653 17.0844C6.4154 17.0844 6.60614 17.1634 6.74678 17.304ZM20.5363 20.4855C20.3956 20.6261 20.2049 20.7051 20.006 20.7051C19.8072 20.7051 19.6164 20.6261 19.4758 20.4855L17.3548 18.3645C17.2182 18.223 17.1426 18.0336 17.1443 17.8369C17.146 17.6403 17.2249 17.4522 17.3639 17.3131C17.503 17.1741 17.6911 17.0952 17.8877 17.0935C18.0844 17.0918 18.2738 17.1674 18.4153 17.304L20.5363 19.425C20.6769 19.5656 20.7559 19.7564 20.7559 19.9552C20.7559 20.1541 20.6769 20.3449 20.5363 20.4855ZM6.74678 6.6975C6.60614 6.8381 6.4154 6.91709 6.21653 6.91709C6.01766 6.91709 5.82693 6.8381 5.68628 6.6975L3.56528 4.575C3.49365 4.50582 3.43651 4.42306 3.39721 4.33155C3.3579 4.24005 3.33721 4.14164 3.33634 4.04205C3.33548 3.94247 3.35445 3.84371 3.39216 3.75153C3.42988 3.65936 3.48557 3.57562 3.55598 3.5052C3.6264 3.43478 3.71014 3.37909 3.80232 3.34138C3.89449 3.30367 3.99325 3.2847 4.09283 3.28556C4.19242 3.28643 4.29083 3.30712 4.38233 3.34642C4.47384 3.38573 4.5566 3.44287 4.62578 3.5145L6.74678 5.6355C6.81663 5.70517 6.87204 5.78793 6.90985 5.87905C6.94766 5.97017 6.96712 6.06785 6.96712 6.1665C6.96712 6.26515 6.94766 6.36283 6.90985 6.45395C6.87204 6.54507 6.81663 6.62783 6.74678 6.6975Z"
+                      />
+                    </mask>
+                    <path
+                      d="M12.0508 16.5C10.8573 16.5 9.71271 16.0259 8.8688 15.182C8.02489 14.3381 7.55078 13.1935 7.55078 12C7.55078 10.8065 8.02489 9.66193 8.8688 8.81802C9.71271 7.97411 10.8573 7.5 12.0508 7.5C13.2443 7.5 14.3888 7.97411 15.2328 8.81802C16.0767 9.66193 16.5508 10.8065 16.5508 12C16.5508 13.1935 16.0767 14.3381 15.2328 15.182C14.3888 16.0259 13.2443 16.5 12.0508 16.5ZM12.0508 18C13.6421 18 15.1682 17.3679 16.2934 16.2426C17.4186 15.1174 18.0508 13.5913 18.0508 12C18.0508 10.4087 17.4186 8.88258 16.2934 7.75736C15.1682 6.63214 13.6421 6 12.0508 6C10.4595 6 8.93336 6.63214 7.80814 7.75736C6.68292 8.88258 6.05078 10.4087 6.05078 12C6.05078 13.5913 6.68292 15.1174 7.80814 16.2426C8.93336 17.3679 10.4595 18 12.0508 18ZM12.0508 0C12.2497 0 12.4405 0.0790176 12.5811 0.21967C12.7218 0.360322 12.8008 0.551088 12.8008 0.75V3.75C12.8008 3.94891 12.7218 4.13968 12.5811 4.28033C12.4405 4.42098 12.2497 4.5 12.0508 4.5C11.8519 4.5 11.6611 4.42098 11.5205 4.28033C11.3798 4.13968 11.3008 3.94891 11.3008 3.75V0.75C11.3008 0.551088 11.3798 0.360322 11.5205 0.21967C11.6611 0.0790176 11.8519 0 12.0508 0V0ZM12.0508 19.5C12.2497 19.5 12.4405 19.579 12.5811 19.7197C12.7218 19.8603 12.8008 20.0511 12.8008 20.25V23.25C12.8008 23.4489 12.7218 23.6397 12.5811 23.7803C12.4405 23.921 12.2497 24 12.0508 24C11.8519 24 11.6611 23.921 11.5205 23.7803C11.3798 23.6397 11.3008 23.4489 11.3008 23.25V20.25C11.3008 20.0511 11.3798 19.8603 11.5205 19.7197C11.6611 19.579 11.8519 19.5 12.0508 19.5ZM24.0508 12C24.0508 12.1989 23.9718 12.3897 23.8311 12.5303C23.6905 12.671 23.4997 12.75 23.3008 12.75H20.3008C20.1019 12.75 19.9111 12.671 19.7705 12.5303C19.6298 12.3897 19.5508 12.1989 19.5508 12C19.5508 11.8011 19.6298 11.6103 19.7705 11.4697C19.9111 11.329 20.1019 11.25 20.3008 11.25H23.3008C23.4997 11.25 23.6905 11.329 23.8311 11.4697C23.9718 11.6103 24.0508 11.8011 24.0508 12ZM4.55078 12C4.55078 12.1989 4.47176 12.3897 4.33111 12.5303C4.19046 12.671 3.99969 12.75 3.80078 12.75H0.800781C0.601869 12.75 0.411103 12.671 0.270451 12.5303C0.129799 12.3897 0.0507813 12.1989 0.0507812 12C0.0507813 11.8011 0.129799 11.6103 0.270451 11.4697C0.411103 11.329 0.601869 11.25 0.800781 11.25H3.80078C3.99969 11.25 4.19046 11.329 4.33111 11.4697C4.47176 11.6103 4.55078 11.8011 4.55078 12ZM20.5363 3.5145C20.6769 3.65515 20.7559 3.84588 20.7559 4.04475C20.7559 4.24362 20.6769 4.43435 20.5363 4.575L18.4153 6.6975C18.3455 6.76713 18.2628 6.82235 18.1717 6.86C18.0806 6.89765 17.983 6.91699 17.8845 6.91692C17.6855 6.91678 17.4947 6.83758 17.354 6.69675C17.2844 6.62702 17.2292 6.54425 17.1915 6.45318C17.1539 6.36211 17.1345 6.26452 17.1346 6.16597C17.1348 5.96695 17.214 5.77613 17.3548 5.6355L19.4758 3.5145C19.6164 3.3739 19.8072 3.29491 20.006 3.29491C20.2049 3.29491 20.3956 3.3739 20.5363 3.5145ZM6.74678 17.304C6.88738 17.4446 6.96637 17.6354 6.96637 17.8342C6.96637 18.0331 6.88738 18.2239 6.74678 18.3645L4.62578 20.4855C4.48433 20.6221 4.29488 20.6977 4.09823 20.696C3.90158 20.6943 3.71347 20.6154 3.57442 20.4764C3.43536 20.3373 3.35648 20.1492 3.35478 19.9526C3.35307 19.7559 3.42866 19.5665 3.56528 19.425L5.68628 17.304C5.82693 17.1634 6.01766 17.0844 6.21653 17.0844C6.4154 17.0844 6.60614 17.1634 6.74678 17.304ZM20.5363 20.4855C20.3956 20.6261 20.2049 20.7051 20.006 20.7051C19.8072 20.7051 19.6164 20.6261 19.4758 20.4855L17.3548 18.3645C17.2182 18.223 17.1426 18.0336 17.1443 17.8369C17.146 17.6403 17.2249 17.4522 17.3639 17.3131C17.503 17.1741 17.6911 17.0952 17.8877 17.0935C18.0844 17.0918 18.2738 17.1674 18.4153 17.304L20.5363 19.425C20.6769 19.5656 20.7559 19.7564 20.7559 19.9552C20.7559 20.1541 20.6769 20.3449 20.5363 20.4855ZM6.74678 6.6975C6.60614 6.8381 6.4154 6.91709 6.21653 6.91709C6.01766 6.91709 5.82693 6.8381 5.68628 6.6975L3.56528 4.575C3.49365 4.50582 3.43651 4.42306 3.39721 4.33155C3.3579 4.24005 3.33721 4.14164 3.33634 4.04205C3.33548 3.94247 3.35445 3.84371 3.39216 3.75153C3.42988 3.65936 3.48557 3.57562 3.55598 3.5052C3.6264 3.43478 3.71014 3.37909 3.80232 3.34138C3.89449 3.30367 3.99325 3.2847 4.09283 3.28556C4.19242 3.28643 4.29083 3.30712 4.38233 3.34642C4.47384 3.38573 4.5566 3.44287 4.62578 3.5145L6.74678 5.6355C6.81663 5.70517 6.87204 5.78793 6.90985 5.87905C6.94766 5.97017 6.96712 6.06785 6.96712 6.1665C6.96712 6.26515 6.94766 6.36283 6.90985 6.45395C6.87204 6.54507 6.81663 6.62783 6.74678 6.6975Z"
+                      fill="black"
+                      stroke="white"
+                      stroke-width="2"
+                      mask="url(#path-1-inside-1_977:1934)"
+                    />
+                  </svg>
+                </label>
               </div>
             </div>
           </div>
-          <div class="w-full lg:w-1/2 px-4">
-            <div class="text-center relative z-10 h-[300px] wow fadeInUp " data-wow-delay=".25s">
-              <img src="images/hero/hero-img.svg" alt="hero-image" class="max-w-[300px] lg:max-w-[500px] mx-auto" />
-              <!-- <img src="images/hero/readabled-core-new-ui.jpg" alt="hero-image"
+        </div>
+      </div>
+    </header>
+    <!-- ===== Header end ===== -->
+
+    <!-- ===== Hero Start ===== -->
+    <section id="home">
+      <div
+        class="bg-gradient-to-l from-gradient-1 to-gradient-2 dark:from-[#3c3e56] dark:to-black rounded-[20px] py-16 mx-4 2xl:mx-[60px] pl-6 lg:pl-10"
+      >
+        <div class="container">
+          <div class="flex flex-wrap items-center -mx-4">
+            <div class="w-full lg:w-1/2 px-4">
+              <div
+                class="mb-14 lg:mb-0 max-w-[570px] wow fadeInUp"
+                data-wow-delay=".2s"
+              >
+                <h1
+                  class="font-bold text-primary text-4xl md:text-[45px] leading-tight md:leading-tight"
+                >
+                  Readabled
+                </h1>
+                <p
+                  class="font-semibold text-black dark:text-white text-xl md:text-[30px] leading-tight md:leading-tight mb-8"
+                >
+                  Online Language Learning and intervention App for Dyslexic
+                  Children
+                </p>
+
+                <p class="font-semibold text-base text-body-color mb-8">
+                  A clinically validated intervention app for dyslexic children
+                  offering a wide variety of phonetic learning exercises.
+                </p>
+
+                <p class="font-bold text-4xl text-primary mb-12">Start Now!</p>
+                <div class="flex items-center">
+                  <a
+                    href="https://app.readabled.com/"
+                    target="_blank"
+                    class="text-base font-bold text-white bg-primary rounded-xl py-4 px-10 transition-all hover:shadow-primary-hover mr-9"
+                  >
+                    Visit the App
+                  </a>
+
+                  <a
+                    href="javascript:void(0)"
+                    class="flex items-center font-bold text-base text-black dark:text-white hover:text-primary dark:hover:text-primary group transition-all glightbox"
+                  >
+                    <span
+                      class="w-[60px] h-[60px] rounded-full inline-flex items-center justify-center bg-primary bg-opacity-10 text-primary mr-5 transition-all group-hover:bg-opacity-100 group-hover:text-white"
+                    >
+                      <svg
+                        width="15"
+                        height="18"
+                        viewBox="0 0 15 18"
+                        class="fill-current"
+                      >
+                        <path
+                          d="M15 9L-8.15666e-07 17.6603L-5.85622e-08 0.339746L15 9Z"
+                        />
+                      </svg>
+                    </span>
+                    Watch Intro
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="w-full lg:w-1/2 px-4">
+              <div
+                class="text-center relative z-10 h-[300px] wow fadeInUp"
+                data-wow-delay=".25s"
+              >
+                <img
+                  src="images/hero/hero-img.svg"
+                  alt="hero-image"
+                  class="max-w-[300px] lg:max-w-[500px] mx-auto"
+                />
+                <!-- <img src="images/hero/readabled-core-new-ui.jpg" alt="hero-image"
                 class="max-w-[300px] lg:max-w-[500px] mx-auto" /> -->
 
-              <span
-                class="absolute -z-1 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[350px] w-full h-[350px] bg-white dark:bg-dark bg-opacity-25 dark:bg-opacity-25 shadow-shape-1 rounded-full hidden lg:block">
-              </span>
-              <span
-                class="absolute -z-1 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[450px] w-full h-[450px] bg-white dark:bg-dark bg-opacity-25 dark:bg-opacity-25 shadow-shape-1 rounded-full hidden lg:block">
-              </span>
+                <span
+                  class="absolute -z-1 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[350px] w-full h-[350px] bg-white dark:bg-dark bg-opacity-25 dark:bg-opacity-25 shadow-shape-1 rounded-full hidden lg:block"
+                >
+                </span>
+                <span
+                  class="absolute -z-1 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[450px] w-full h-[450px] bg-white dark:bg-dark bg-opacity-25 dark:bg-opacity-25 shadow-shape-1 rounded-full hidden lg:block"
+                >
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- ===== Hero end ===== -->
+    </section>
+    <!-- ===== Hero end ===== -->
 
-  <!-- ===== Awards start ===== -->
-  <section id="features" class="pt-[110px]">
-    <div class="container">
-      <div class="flex justify-center -mx-4">
-        <div class="w-full px-4">
-          <div class="max-w-[510px] mx-auto text-center mb-[70px] wow fadeInUp" data-wow-delay=".2s">
-            <h2 class="font-extrabold text-3xl sm:text-4xl text-black dark:text-white mb-5">
-              Our Key Features
-            </h2>
-            <p class="font-semibold text-base text-body-color">
-              Readabled is an online app providing a wide variety of
-              phonetic learning exercises.
-            </p>
+    <!-- ===== Awards start ===== -->
+    <section id="features" class="pt-[110px]">
+      <div class="container">
+        <div class="flex justify-center -mx-4">
+          <div class="w-full px-4">
+            <div
+              class="max-w-[510px] mx-auto text-center mb-[70px] wow fadeInUp"
+              data-wow-delay=".2s"
+            >
+              <h2
+                class="font-extrabold text-3xl sm:text-4xl text-black dark:text-white mb-5"
+              >
+                Our Key Features
+              </h2>
+              <p class="font-semibold text-base text-body-color">
+                Readabled is an online app providing a wide variety of phonetic
+                learning exercises.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="flex flex-wrap -mx-4">
-        <div class="w-full md:w-1/2 xl:w-1/3 px-4">
-          <div
-            class="bg-white dark:bg-black p-10 sm:p-12 md:p-10 lg:p-12 xl:p-10 2xl:p-12 rounded-[20px] shadow-award mb-8 wow fadeInUp"
-            data-wow-delay=".2s">
-            <div class="flex items-center mb-6">
-              <span class="pr-[10px]">
-                <img src="images/award/test.png" alt="image"
-                  class="w-[50px] h-[50px] border-2 border-white rounded-full" />
-              </span>
-              <span class="font-bold text-lg text-black dark:text-white">
-                Clinically validated
-              </span>
-            </div>
+        <div class="flex flex-wrap -mx-4">
+          <div class="w-full md:w-1/2 xl:w-1/3 px-4">
+            <div
+              class="bg-white dark:bg-black p-10 sm:p-12 md:p-10 lg:p-12 xl:p-10 2xl:p-12 rounded-[20px] shadow-award mb-8 wow fadeInUp"
+              data-wow-delay=".2s"
+            >
+              <div class="flex items-center mb-6">
+                <span class="pr-[10px]">
+                  <img
+                    src="images/award/test.png"
+                    alt="image"
+                    class="w-[50px] h-[50px] border-2 border-white rounded-full"
+                  />
+                </span>
+                <span class="font-bold text-lg text-black dark:text-white">
+                  Clinically validated
+                </span>
+              </div>
 
-            <div class="flex items-center mb-8">
-              <div class="flex items-center">
-                <!-- <img src="images/award/person-1.png" alt="image"
+              <div class="flex items-center mb-8">
+                <div class="flex items-center">
+                  <!-- <img src="images/award/person-1.png" alt="image"
                   class="w-[38px] h-[38px] border-2 border-white rounded-full" />
                 <img src="images/award/person-2.png" alt="image"
                   class="w-[38px] h-[38px] border-2 border-white rounded-full -ml-3" />
                 <img src="images/award/person-3.png" alt="image"
                   class="w-[38px] h-[38px] border-2 border-white rounded-full -ml-3" /> -->
+                </div>
+                <span
+                  class="inline-block pl-4 font-semibold text-xl text-black dark:text-white"
+                >
+                  To enhance word sound learning, developed in collaboration and
+                  <span class="font-bold text-primary"> validated </span> by
+                  renowned experts.
+                </span>
               </div>
-              <span class="inline-block pl-4 font-semibold text-xl text-black dark:text-white">
-                To enhance word sound learning, developed in collaboration and
-                <span class="font-bold text-primary"> validated </span> by renowned experts.
-              </span>
-            </div>
 
-            <!-- <p class="text-base text-body-color mb-9">
+              <!-- <p class="text-base text-body-color mb-9">
               Lorem ipsum dolor sit amet, consec adipiscing elit In vulputate
               vitae massa eu dapibus ligula.
             </p> -->
 
-            <a href="#contact" class="inline-flex items-center font-bold text-base text-primary hover:underline">
-              Know More
+              <a
+                href="#contact"
+                class="inline-flex items-center font-bold text-base text-primary hover:underline"
+              >
+                Know More
 
-              <span class="pl-2">
-                <svg width="28" height="28" viewBox="0 0 28 28" class="fill-current">
-                  <path
-                    d="M16.3333 19.7633V15.0967H5.92666L5.89166 12.7517H16.3333V8.09668L22.1667 13.93L16.3333 19.7633Z" />
-                </svg>
-              </span>
-            </a>
+                <span class="pl-2">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    class="fill-current"
+                  >
+                    <path
+                      d="M16.3333 19.7633V15.0967H5.92666L5.89166 12.7517H16.3333V8.09668L22.1667 13.93L16.3333 19.7633Z"
+                    />
+                  </svg>
+                </span>
+              </a>
+            </div>
           </div>
-        </div>
-        <div class="w-full md:w-1/2 xl:w-1/3 px-4">
-          <div
-            class="bg-white dark:bg-black p-10 sm:p-12 md:p-10 lg:p-12 xl:p-10 2xl:p-12 rounded-[20px] shadow-award mb-8 wow fadeInUp"
-            data-wow-delay=".25s">
-            <div class="flex items-center mb-6">
-              <span class="pr-[10px]">
-                <img src="images/award/mind-map.png" alt="image"
-                  class="w-[50px] h-[50px] border-2 border-white rounded-full" />
-              </span>
-              <span class="font-bold text-lg text-black dark:text-white">
-                In-depth learning
-              </span>
-            </div>
+          <div class="w-full md:w-1/2 xl:w-1/3 px-4">
+            <div
+              class="bg-white dark:bg-black p-10 sm:p-12 md:p-10 lg:p-12 xl:p-10 2xl:p-12 rounded-[20px] shadow-award mb-8 wow fadeInUp"
+              data-wow-delay=".25s"
+            >
+              <div class="flex items-center mb-6">
+                <span class="pr-[10px]">
+                  <img
+                    src="images/award/mind-map.png"
+                    alt="image"
+                    class="w-[50px] h-[50px] border-2 border-white rounded-full"
+                  />
+                </span>
+                <span class="font-bold text-lg text-black dark:text-white">
+                  In-depth learning
+                </span>
+              </div>
 
-            <div class="flex items-center mb-5">
-              <h3 class="font-bold text-xl text-black dark:text-white">
-                Collection of <span class="font-bold text-primary"> 1000+ </span> words spread over
-                <span class="font-bold text-primary"> 256+ </span> interactive word, sound and speech learning
-                exercises.
-              </h3>
-            </div>
+              <div class="flex items-center mb-5">
+                <h3 class="font-bold text-xl text-black dark:text-white">
+                  Collection of
+                  <span class="font-bold text-primary"> 1000+ </span> words
+                  spread over
+                  <span class="font-bold text-primary"> 256+ </span> interactive
+                  word, sound and speech learning exercises.
+                </h3>
+              </div>
 
-            <!-- <p class="text-base text-body-color mb-9">
+              <!-- <p class="text-base text-body-color mb-9">
               Lorem ipsum dolor sit amet, consec adipiscing elit In vulputate
               vitae massa eu dapibus ligula.
             </p> -->
 
-            <a href="#contact" class="inline-flex items-center font-bold text-base text-primary hover:underline">
-              Know More
+              <a
+                href="#contact"
+                class="inline-flex items-center font-bold text-base text-primary hover:underline"
+              >
+                Know More
 
-              <span class="pl-2">
-                <svg width="28" height="28" viewBox="0 0 28 28" class="fill-current">
-                  <path
-                    d="M16.3333 19.7633V15.0967H5.92666L5.89166 12.7517H16.3333V8.09668L22.1667 13.93L16.3333 19.7633Z" />
-                </svg>
-              </span>
-            </a>
+                <span class="pl-2">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    class="fill-current"
+                  >
+                    <path
+                      d="M16.3333 19.7633V15.0967H5.92666L5.89166 12.7517H16.3333V8.09668L22.1667 13.93L16.3333 19.7633Z"
+                    />
+                  </svg>
+                </span>
+              </a>
+            </div>
           </div>
-        </div>
-        <div class="w-full md:w-1/2 xl:w-1/3 px-4">
-          <div
-            class="bg-white dark:bg-black p-10 sm:p-12 md:p-10 lg:p-12 xl:p-10 2xl:p-12 rounded-[20px] shadow-award mb-8 wow fadeInUp"
-            data-wow-delay=".3s">
-            <div class="flex items-center mb-6">
-              <span class="pr-[10px]">
-                <img src="images/award/ai.png" alt="image"
-                  class="w-[50px] h-[50px] border-2 border-white rounded-full" />
-              </span>
-              <span class="font-bold text-lg text-black dark:text-white">
-                AI-powered intervention
-              </span>
-            </div>
+          <div class="w-full md:w-1/2 xl:w-1/3 px-4">
+            <div
+              class="bg-white dark:bg-black p-10 sm:p-12 md:p-10 lg:p-12 xl:p-10 2xl:p-12 rounded-[20px] shadow-award mb-8 wow fadeInUp"
+              data-wow-delay=".3s"
+            >
+              <div class="flex items-center mb-6">
+                <span class="pr-[10px]">
+                  <img
+                    src="images/award/ai.png"
+                    alt="image"
+                    class="w-[50px] h-[50px] border-2 border-white rounded-full"
+                  />
+                </span>
+                <span class="font-bold text-lg text-black dark:text-white">
+                  AI-powered intervention
+                </span>
+              </div>
 
-            <div class="flex items-center mb-5">
-              <h3 class="font-bold text-xl text-black dark:text-white">
-                <span class="font-bold text-primary"> AI-powered </span> speech engines, remote monitoring and
-                <span class="font-bold text-primary"> customized </span> reports to cater to the individual's needs.
-              </h3>
-            </div>
+              <div class="flex items-center mb-5">
+                <h3 class="font-bold text-xl text-black dark:text-white">
+                  <span class="font-bold text-primary"> AI-powered </span>
+                  speech engines, remote monitoring and
+                  <span class="font-bold text-primary"> customized </span>
+                  reports to cater to the individual's needs.
+                </h3>
+              </div>
 
-            <!-- <p class="text-base text-body-color mb-9">
+              <!-- <p class="text-base text-body-color mb-9">
               Lorem ipsum dolor sit amet, consec adipiscing elit In vulputate
               vitae massa eu dapibus ligula.
             </p> -->
 
-            <a href="#contact" class="inline-flex items-center font-bold text-base text-primary hover:underline">
-              Know More
+              <a
+                href="#contact"
+                class="inline-flex items-center font-bold text-base text-primary hover:underline"
+              >
+                Know More
 
-              <span class="pl-2">
-                <svg width="28" height="28" viewBox="0 0 28 28" class="fill-current">
-                  <path
-                    d="M16.3333 19.7633V15.0967H5.92666L5.89166 12.7517H16.3333V8.09668L22.1667 13.93L16.3333 19.7633Z" />
-                </svg>
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ===== Awards end ===== -->
-
-  <!-- ===== About start ===== -->
-  <section id="about" class="pt-[100px]">
-    <!-- <img src="images/hero/readabled-core-new-ui.jpg" alt="hero-image" class="max-w-[300px] lg:max-w-[500px] mx-auto" /> -->
-    <div class="container">
-      <div class="flex flex-wrap items-center -mx-4">
-        <div class="w-full lg:w-1/2 px-4">
-          <div class="text-center mb-14 lg:mb-0 wow fadeInUp max-w-[550px] mx-auto" data-wow-delay=".2s">
-            <img src="images/about/about-image-3.svg" alt="image" class="max-full" />
-          </div>
-        </div>
-        <div class="w-full lg:w-1/2 px-4">
-          <div class="max-w-[485px] lg:ml-auto wow fadeInUp" data-wow-delay=".3s">
-            <span class="font-bold text-base text-primary block mb-2">
-              About the Application
-            </span>
-            <h2 class="font-extrabold text-3xl sm:text-4xl leading-tight text-black dark:text-white mb-6">
-              The personalized language learning and intervention app for dyslexic children.
-            </h2>
-            <p class="text-lg leading-relaxed text-body-color mb-12 lg:mb-16">
-              AI-powered solution to enhance langauge and speech learning for children with dyslexia. Offering a wide
-              variety of phonetic learning exercises, and speech models to aid in the child's learning journey.
-            </p>
-            <a href="#contact" class="inline-flex items-center font-bold text-base text-primary hover:underline">
-              Know More
-
-              <span class="pl-2">
-                <svg width="28" height="28" viewBox="0 0 28 28" class="fill-current">
-                  <path
-                    d="M16.3333 19.7633V15.0967H5.92666L5.89166 12.7517H16.3333V8.09668L22.1667 13.93L16.3333 19.7633Z" />
-                </svg>
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ===== About end ===== -->
-
-  <!-- ===== About start ===== -->
-  <section class="pt-14">
-    <div class="container">
-      <div class="flex flex-wrap items-center -mx-4">
-        <div class="w-full lg:w-1/2 px-4">
-          <div class="text-center mb-14 lg:mb-0 wow fadeInUp max-w-[300px] md:max-w-[450px] lg:max-w-[450px] mx-auto"
-            data-wow-delay=".2s">
-            <img src="images/about/about-image-4.svg" alt="image" class="max-full" />
-          </div>
-        </div>
-        <div class="w-full lg:w-1/2 lg:order-first px-4">
-          <div class="max-w-[485px] wow fadeInUp" data-wow-delay=".3s">
-            <span class="font-bold text-base text-primary block mb-2">
-              Easy to follow Readabled
-            </span>
-            <h2 class="font-extrabold text-3xl sm:text-4xl leading-tight text-black dark:text-white mb-6">
-              Experience a seamless learning journey backed by our research.
-            </h2>
-            <p class="text-lg leading-relaxed text-body-color mb-12 lg:mb-16">
-              Our app packs in over 1000+ words, 256+ interactive exercises and speech models categorizing the words by
-              phonemes.
-            </p>
-            <a href="#contact" class="inline-flex items-center font-bold text-base text-primary hover:underline">
-              Get in touch Now!
-
-              <span class="pl-2">
-                <svg width="28" height="28" viewBox="0 0 28 28" class="fill-current">
-                  <path
-                    d="M16.3333 19.7633V15.0967H5.92666L5.89166 12.7517H16.3333V8.09668L22.1667 13.93L16.3333 19.7633Z" />
-                </svg>
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ===== About end ===== -->
-
-  <!-- ===== How Works start ===== -->
-  <section id="how-works" class="pt-[100px]">
-    <div class="container">
-      <div class="flex justify-center -mx-4">
-        <div class="w-full px-4">
-          <div class="max-w-[510px] mx-auto text-center mb-[70px] wow fadeInUp" data-wow-delay=".2s">
-            <h2 class="font-extrabold text-3xl sm:text-4xl text-black dark:text-white mb-5">
-              How it Works?
-            </h2>
-            <p class="font-semibold text-base text-body-color">
-              Getting started is a breeze! Just follow a few simple steps to dive into Readabled and begin the journey
-              towards enhanced learning
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex flex-wrap justify-center -mx-4">
-        <div class="w-full md:w-1/2 lg:w-1/3 px-4">
-          <div class="mb-12 mx-auto max-w-[310px] text-center group wow fadeInUp" data-wow-delay=".2s">
-            <div
-              class="w-20 h-20 mx-auto rounded-3xl bg-primary bg-opacity-5 flex items-center justify-center text-primary transition-all mb-5">
-              <div class="h-[50px] w-[50px]">
-                <img src="images/misc/dashboard.png" alt="image" class="w-[50px] h-[50px] rounded-full" />
-              </div>
+                <span class="pl-2">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    class="fill-current"
+                  >
+                    <path
+                      d="M16.3333 19.7633V15.0967H5.92666L5.89166 12.7517H16.3333V8.09668L22.1667 13.93L16.3333 19.7633Z"
+                    />
+                  </svg>
+                </span>
+              </a>
             </div>
-            <h3 class="font-bold text-xl sm:text-2xl md:text-xl lg:text-2xl text-black dark:text-white mb-4">
-              Register with our app
-            </h3>
-            <p class="font-semibold text-base text-body-color">
-              Starting is as easy as just signing up for a research backed learning solution
-            </p>
-          </div>
-        </div>
-        <div class="w-full md:w-1/2 lg:w-1/3 px-4">
-          <div class="mb-12 mx-auto max-w-[310px] text-center group wow fadeInUp" data-wow-delay=".25s">
-            <div
-              class="w-20 h-20 mx-auto rounded-3xl bg-primary bg-opacity-5 flex items-center justify-center text-primary transition-all mb-5">
-              <div class="h-[50px] w-[50px]">
-                <img src="images/misc/learn.png" alt="image" class="w-[50px] h-[50px] rounded-full" />
-              </div>
-            </div>
-            <h3 class="font-bold text-xl sm:text-2xl md:text-xl lg:text-2xl text-black dark:text-white mb-4">
-              Follow along exercises
-            </h3>
-            <p class="font-semibold text-base text-body-color">
-              Over 1000+ words, 256+ exercises and speech models to aide learning.
-            </p>
-          </div>
-        </div>
-        <div class="w-full md:w-1/2 lg:w-1/3 px-4">
-          <div class="mb-12 mx-auto max-w-[310px] text-center group wow fadeInUp" data-wow-delay=".3s">
-            <div
-              class="w-20 h-20 mx-auto rounded-3xl bg-primary bg-opacity-5 flex items-center justify-center text-primary transition-all mb-5">
-              <div class="h-[50px] w-[50px]">
-                <img src="images/misc/reports.png" alt="image" class="w-[50px] h-[50px] rounded-full" />
-              </div>
-            </div>
-            <h3 class="font-bold text-xl sm:text-2xl md:text-xl lg:text-2xl text-black dark:text-white mb-4">
-              Get personalized reports
-            </h3>
-            <p class="font-semibold text-base text-body-color">
-              Customized reports to track the child's progress.
-            </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- ===== How Works end ===== -->
+    </section>
+    <!-- ===== Awards end ===== -->
 
-  <!-- ===== Call to Action start ===== -->
-  <section id="cta" class="pt-14">
-    <div class="container">
-      <div
-        class="bg-gradient-to-l from-gradient-1 to-gradient-2 dark:from-[#3c3e56] dark:to-black rounded-[20px] px-7 sm:px-10 md:px-16 lg:px-14 xl:px-16 wow fadeInUp"
-        data-wow-delay=".2s">
-        <div class="flex flex-wrap items-end -mx-4">
+    <!-- ===== About start ===== -->
+    <section id="about" class="pt-[100px]">
+      <!-- <img src="images/hero/readabled-core-new-ui.jpg" alt="hero-image" class="max-w-[300px] lg:max-w-[500px] mx-auto" /> -->
+      <div class="container">
+        <div class="flex flex-wrap items-center -mx-4">
           <div class="w-full lg:w-1/2 px-4">
-            <div class="max-w-[500px] py-16">
-              <span class="font-bold text-base text-primary block mb-2">
-                Start Now!
-              </span>
-              <h2 class="font-extrabold text-3xl sm:text-4xl leading-tight text-black dark:text-white mb-7">
-                Readabled.
-              </h2>
-              <p class="font-bold text-base leading-relaxed text-body-color mb-10">
-                Online Language Learning and intervention App for Dyslexic Children.
-              </p>
-              <div class="flex items-center justify-between ">
-
-                <a href="https://app.readabled.com/" target="_blank"
-                  class="font-bold text-white bg-primary rounded-xl py-4 px-6 transition-all hover:shadow-primary-hover">
-                  Visit the App
-                </a>
-                <a href="javascript:void(0)"
-                  class="flex items-center font-bold text-base text-black dark:text-white hover:text-primary dark:hover:text-primary group transition-all glightbox">
-                  <span
-                    class="w-[60px] h-[60px] rounded-full inline-flex items-center justify-center bg-primary bg-opacity-10 text-primary mr-5 transition-all group-hover:bg-opacity-100 group-hover:text-white">
-                    <svg width="15" height="18" viewBox="0 0 15 18" class="fill-current">
-                      <path d="M15 9L-8.15666e-07 17.6603L-5.85622e-08 0.339746L15 9Z" />
-                    </svg>
-                  </span>
-                  Watch Intro
-                </a>
-                <a href="#contact"
-                  class="text-primary font-bold rounded-xl py-4 px-6 transition-all hover:text-white hover:bg-primary">
-                  Know More
-                </a>
-              </div>
+            <div
+              class="text-center mb-14 lg:mb-0 wow fadeInUp max-w-[550px] mx-auto"
+              data-wow-delay=".2s"
+            >
+              <img
+                src="images/about/about-image-3.svg"
+                alt="image"
+                class="max-full"
+              />
             </div>
           </div>
-          <div class="lg:w-1/2 px-4">
-            <div class="relative w-full flex justify-end items-end">
-              <div class="h-full">
-                <img src="images/cta/cta-image-4.png" alt="image" class="relative z-10 drop-shadow-image" />
-              </div>
+          <div class="w-full lg:w-1/2 px-4">
+            <div
+              class="max-w-[485px] lg:ml-auto wow fadeInUp"
+              data-wow-delay=".3s"
+            >
+              <span class="font-bold text-base text-primary block mb-2">
+                About the Application
+              </span>
+              <h2
+                class="font-extrabold text-3xl sm:text-4xl leading-tight text-black dark:text-white mb-6"
+              >
+                The personalized language learning and intervention app for
+                dyslexic children.
+              </h2>
+              <p class="text-lg leading-relaxed text-body-color mb-12 lg:mb-16">
+                AI-powered solution to enhance langauge and speech learning for
+                children with dyslexia. Offering a wide variety of phonetic
+                learning exercises, and speech models to aid in the child's
+                learning journey.
+              </p>
+              <a
+                href="#contact"
+                class="inline-flex items-center font-bold text-base text-primary hover:underline"
+              >
+                Know More
 
+                <span class="pl-2">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    class="fill-current"
+                  >
+                    <path
+                      d="M16.3333 19.7633V15.0967H5.92666L5.89166 12.7517H16.3333V8.09668L22.1667 13.93L16.3333 19.7633Z"
+                    />
+                  </svg>
+                </span>
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- ===== Call to Action end ===== -->
+    </section>
+    <!-- ===== About end ===== -->
 
+    <!-- ===== About start ===== -->
+    <section class="pt-14">
+      <div class="container">
+        <div class="flex flex-wrap items-center -mx-4">
+          <div class="w-full lg:w-1/2 px-4">
+            <div
+              class="text-center mb-14 lg:mb-0 wow fadeInUp max-w-[300px] md:max-w-[450px] lg:max-w-[450px] mx-auto"
+              data-wow-delay=".2s"
+            >
+              <img
+                src="images/about/about-image-4.svg"
+                alt="image"
+                class="max-full"
+              />
+            </div>
+          </div>
+          <div class="w-full lg:w-1/2 lg:order-first px-4">
+            <div class="max-w-[485px] wow fadeInUp" data-wow-delay=".3s">
+              <span class="font-bold text-base text-primary block mb-2">
+                Easy to follow Readabled
+              </span>
+              <h2
+                class="font-extrabold text-3xl sm:text-4xl leading-tight text-black dark:text-white mb-6"
+              >
+                Experience a seamless learning journey backed by our research.
+              </h2>
+              <p class="text-lg leading-relaxed text-body-color mb-12 lg:mb-16">
+                Our app packs in over 1000+ words, 256+ interactive exercises
+                and speech models categorizing the words by phonemes.
+              </p>
+              <a
+                href="#contact"
+                class="inline-flex items-center font-bold text-base text-primary hover:underline"
+              >
+                Get in touch Now!
 
-  <!-- ===== Brands start ===== -->
-  <section class="pt-12">
-    <div class="md:container">
-      <div
-        class="bg-gradient-to-l from-gradient-1 to-gradient-2 md:rounded-[20px] py-8 px-4 sm:px-2 md:py-[40px] md:px-[30px] xl:py-[50px] xl:px-8 2xl:px-[50px] 2xl:py-[70px] relative z-10 wow fadeInUp border-2"
-        data-wow-delay=".2s">
-        <div class="flex flex-wrap items-center justify-center">
-          <a href="https://indiaai.gov.in/" target="_blank" rel="nofollow noreferrer"
-            class="flex items-center justify-center max-w-[160px] lg:max-w-[130px] xl:max-w-[150px] 2xl:max-w-[160px] mx-3 sm:mx-4 xl:mx-6 2xl:mx-8 py-[15px] grayscale hover:grayscale-0 transition">
-            <img src="images/brands/india-ai-logo.png" alt="India AI logo" />
-          </a>
-          <a href="https://www.startupindia.gov.in/" target="_blank" rel="nofollow noreferrer"
-            class="flex items-center justify-center max-w-[160px] lg:max-w-[130px] xl:max-w-[150px] 2xl:max-w-[160px] mx-3 sm:mx-4 xl:mx-6 2xl:mx-8 py-[15px] grayscale hover:grayscale-0 transition">
-            <img src="images/brands/startup-india-logo.webp" alt="Startup India logo" />
-          </a>
-          <a href="https://www.meity.gov.in/" target="_blank" rel="nofollow noreferrer"
-            class="flex items-center justify-center max-w-[160px] lg:max-w-[130px] xl:max-w-[150px] 2xl:max-w-[160px] mx-3 sm:mx-4 xl:mx-6 2xl:mx-8 py-[15px] grayscale hover:grayscale-0 transition">
-            <img src="images/brands/meity-logo.svg" alt="MEITY logo" />
-          </a>
-          <a href="https://dst.gov.in/" target="_blank" rel="nofollow noreferrer"
-            class="flex items-center justify-center max-w-[120px] lg:max-w-[90px] xl:max-w-[110px] 2xl:max-w-[120px] mx-3 sm:mx-4 xl:mx-6 2xl:mx-8 py-[15px] grayscale hover:grayscale-0 transition">
-            <img src="images/brands/dst-logo.png" alt="DST logo" />
-          </a>
-          <!-- <a href="https://home.iitd.ac.in/" target="_blank" rel="nofollow noreferrer"
+                <span class="pl-2">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    class="fill-current"
+                  >
+                    <path
+                      d="M16.3333 19.7633V15.0967H5.92666L5.89166 12.7517H16.3333V8.09668L22.1667 13.93L16.3333 19.7633Z"
+                    />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== About end ===== -->
+
+    <!-- ===== How Works start ===== -->
+    <section id="how-works" class="pt-[100px]">
+      <div class="container">
+        <div class="flex justify-center -mx-4">
+          <div class="w-full px-4">
+            <div
+              class="max-w-[510px] mx-auto text-center mb-[70px] wow fadeInUp"
+              data-wow-delay=".2s"
+            >
+              <h2
+                class="font-extrabold text-3xl sm:text-4xl text-black dark:text-white mb-5"
+              >
+                How it Works?
+              </h2>
+              <p class="font-semibold text-base text-body-color">
+                Getting started is a breeze! Just follow a few simple steps to
+                dive into Readabled and begin the journey towards enhanced
+                learning
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center -mx-4">
+          <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+            <div
+              class="mb-12 mx-auto max-w-[310px] text-center group wow fadeInUp"
+              data-wow-delay=".2s"
+            >
+              <div
+                class="w-20 h-20 mx-auto rounded-3xl bg-primary bg-opacity-5 flex items-center justify-center text-primary transition-all mb-5"
+              >
+                <div class="h-[50px] w-[50px]">
+                  <img
+                    src="images/misc/dashboard.png"
+                    alt="image"
+                    class="w-[50px] h-[50px] rounded-full"
+                  />
+                </div>
+              </div>
+              <h3
+                class="font-bold text-xl sm:text-2xl md:text-xl lg:text-2xl text-black dark:text-white mb-4"
+              >
+                Register with our app
+              </h3>
+              <p class="font-semibold text-base text-body-color">
+                Starting is as easy as just signing up for a research backed
+                learning solution
+              </p>
+            </div>
+          </div>
+          <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+            <div
+              class="mb-12 mx-auto max-w-[310px] text-center group wow fadeInUp"
+              data-wow-delay=".25s"
+            >
+              <div
+                class="w-20 h-20 mx-auto rounded-3xl bg-primary bg-opacity-5 flex items-center justify-center text-primary transition-all mb-5"
+              >
+                <div class="h-[50px] w-[50px]">
+                  <img
+                    src="images/misc/learn.png"
+                    alt="image"
+                    class="w-[50px] h-[50px] rounded-full"
+                  />
+                </div>
+              </div>
+              <h3
+                class="font-bold text-xl sm:text-2xl md:text-xl lg:text-2xl text-black dark:text-white mb-4"
+              >
+                Follow along exercises
+              </h3>
+              <p class="font-semibold text-base text-body-color">
+                Over 1000+ words, 256+ exercises and speech models to aide
+                learning.
+              </p>
+            </div>
+          </div>
+          <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+            <div
+              class="mb-12 mx-auto max-w-[310px] text-center group wow fadeInUp"
+              data-wow-delay=".3s"
+            >
+              <div
+                class="w-20 h-20 mx-auto rounded-3xl bg-primary bg-opacity-5 flex items-center justify-center text-primary transition-all mb-5"
+              >
+                <div class="h-[50px] w-[50px]">
+                  <img
+                    src="images/misc/reports.png"
+                    alt="image"
+                    class="w-[50px] h-[50px] rounded-full"
+                  />
+                </div>
+              </div>
+              <h3
+                class="font-bold text-xl sm:text-2xl md:text-xl lg:text-2xl text-black dark:text-white mb-4"
+              >
+                Get personalized reports
+              </h3>
+              <p class="font-semibold text-base text-body-color">
+                Customized reports to track the child's progress.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== How Works end ===== -->
+
+    <!-- ===== Call to Action start ===== -->
+    <section id="cta" class="pt-14">
+      <div class="container">
+        <div
+          class="bg-gradient-to-l from-gradient-1 to-gradient-2 dark:from-[#3c3e56] dark:to-black rounded-[20px] px-7 sm:px-10 md:px-16 lg:px-14 xl:px-16 wow fadeInUp"
+          data-wow-delay=".2s"
+        >
+          <div class="flex flex-wrap items-end -mx-4">
+            <div class="w-full lg:w-1/2 px-4">
+              <div class="max-w-[500px] py-16">
+                <span class="font-bold text-base text-primary block mb-2">
+                  Start Now!
+                </span>
+                <h2
+                  class="font-extrabold text-3xl sm:text-4xl leading-tight text-black dark:text-white mb-7"
+                >
+                  Readabled.
+                </h2>
+                <p
+                  class="font-bold text-base leading-relaxed text-body-color mb-10"
+                >
+                  Online Language Learning and intervention App for Dyslexic
+                  Children.
+                </p>
+                <div class="flex items-center justify-between">
+                  <a
+                    href="https://app.readabled.com/"
+                    target="_blank"
+                    class="font-bold text-white bg-primary rounded-xl py-4 px-6 transition-all hover:shadow-primary-hover"
+                  >
+                    Visit the App
+                  </a>
+                  <a
+                    href="javascript:void(0)"
+                    class="flex items-center font-bold text-base text-black dark:text-white hover:text-primary dark:hover:text-primary group transition-all glightbox"
+                  >
+                    <span
+                      class="w-[60px] h-[60px] rounded-full inline-flex items-center justify-center bg-primary bg-opacity-10 text-primary mr-5 transition-all group-hover:bg-opacity-100 group-hover:text-white"
+                    >
+                      <svg
+                        width="15"
+                        height="18"
+                        viewBox="0 0 15 18"
+                        class="fill-current"
+                      >
+                        <path
+                          d="M15 9L-8.15666e-07 17.6603L-5.85622e-08 0.339746L15 9Z"
+                        />
+                      </svg>
+                    </span>
+                    Watch Intro
+                  </a>
+                  <a
+                    href="#contact"
+                    class="text-primary font-bold rounded-xl py-4 px-6 transition-all hover:text-white hover:bg-primary"
+                  >
+                    Know More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/2 px-4">
+              <div class="relative w-full flex justify-end items-end">
+                <div class="h-full">
+                  <img
+                    src="images/cta/cta-image-4.png"
+                    alt="image"
+                    class="relative z-10 drop-shadow-image"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== Call to Action end ===== -->
+
+    <!-- ===== Brands start ===== -->
+    <section class="pt-12">
+      <div class="md:container">
+        <div
+          class="bg-gradient-to-l from-gradient-1 to-gradient-2 md:rounded-[20px] py-8 px-4 sm:px-2 md:py-[40px] md:px-[30px] xl:py-[50px] xl:px-8 2xl:px-[50px] 2xl:py-[70px] relative z-10 wow fadeInUp border-2"
+          data-wow-delay=".2s"
+        >
+          <div class="flex flex-wrap items-center justify-center">
+            <a
+              href="https://indiaai.gov.in/"
+              target="_blank"
+              rel="nofollow noreferrer"
+              class="flex items-center justify-center max-w-[160px] lg:max-w-[130px] xl:max-w-[150px] 2xl:max-w-[160px] mx-3 sm:mx-4 xl:mx-6 2xl:mx-8 py-[15px] grayscale hover:grayscale-0 transition"
+            >
+              <img src="images/brands/india-ai-logo.png" alt="India AI logo" />
+            </a>
+            <a
+              href="https://www.startupindia.gov.in/"
+              target="_blank"
+              rel="nofollow noreferrer"
+              class="flex items-center justify-center max-w-[160px] lg:max-w-[130px] xl:max-w-[150px] 2xl:max-w-[160px] mx-3 sm:mx-4 xl:mx-6 2xl:mx-8 py-[15px] grayscale hover:grayscale-0 transition"
+            >
+              <img
+                src="images/brands/startup-india-logo.webp"
+                alt="Startup India logo"
+              />
+            </a>
+            <a
+              href="https://www.meity.gov.in/"
+              target="_blank"
+              rel="nofollow noreferrer"
+              class="flex items-center justify-center max-w-[160px] lg:max-w-[130px] xl:max-w-[150px] 2xl:max-w-[160px] mx-3 sm:mx-4 xl:mx-6 2xl:mx-8 py-[15px] grayscale hover:grayscale-0 transition"
+            >
+              <img src="images/brands/meity-logo.svg" alt="MEITY logo" />
+            </a>
+            <a
+              href="https://dst.gov.in/"
+              target="_blank"
+              rel="nofollow noreferrer"
+              class="flex items-center justify-center max-w-[120px] lg:max-w-[90px] xl:max-w-[110px] 2xl:max-w-[120px] mx-3 sm:mx-4 xl:mx-6 2xl:mx-8 py-[15px] grayscale hover:grayscale-0 transition"
+            >
+              <img src="images/brands/dst-logo.png" alt="DST logo" />
+            </a>
+            <!-- <a href="https://home.iitd.ac.in/" target="_blank" rel="nofollow noreferrer"
             class="flex items-center justify-center max-w-[90px] lg:max-w-[70px] xl:max-w-[90px] 2xl:max-w-[100px] mx-3 sm:mx-4 xl:mx-6 2xl:mx-8 py-[15px] grayscale hover:grayscale-0 transition">
             <img src="images/brands/iitd-logo.png" alt="IIT Delhi logo" />
           </a>
@@ -564,155 +833,1004 @@
             class="flex items-center justify-center max-w-[90px] lg:max-w-[70px] xl:max-w-[90px] 2xl:max-w-[100px] mx-3 sm:mx-4 xl:mx-6 2xl:mx-8 py-[15px] grayscale hover:grayscale-0 transition">
             <img src="images/brands/aiims-delhi-logo.png" alt="AIIMS Delhi logo" />
           </a> -->
-        </div>
+          </div>
 
-        <div>
-          <span class="absolute bottom-0 left-14 -z-1">
-            <svg width="187" height="66" viewBox="0 0 187 66" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path opacity="0.5"
-                d="M122.036 4.65918C170.944 20.5767 197.688 73.1281 181.771 122.036C165.853 170.944 113.302 197.688 64.3938 181.771C15.4858 165.853 -11.2583 113.302 4.65918 64.3938C20.5767 15.4858 73.1281 -11.2583 122.036 4.65918Z"
-                fill="url(#paint0_linear_94_97)" />
-              <defs>
-                <linearGradient id="paint0_linear_94_97" x1="4.65914" y1="64.3937" x2="138.999" y2="108.116"
-                  gradientUnits="userSpaceOnUse">
-                  <stop stop-color="white" />
-                  <stop offset="1" stop-color="white" stop-opacity="0" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </span>
-          <span class="absolute top-0 right-14 -z-1">
-            <svg width="169" height="67" viewBox="0 0 169 67" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path opacity="0.5"
-                d="M62.8886 63.1548C18.3442 51.2191 -8.09041 5.433 3.84523 -39.1114C15.7809 -83.6558 61.567 -110.09 106.111 -98.1548C150.656 -86.2192 177.09 -40.4331 165.155 4.11136C153.219 48.6558 107.433 75.0904 62.8886 63.1548Z"
-                fill="url(#paint0_linear_94_98)" />
-              <defs>
-                <linearGradient id="paint0_linear_94_98" x1="165.155" y1="4.11136" x2="42.8009" y2="-28.6733"
-                  gradientUnits="userSpaceOnUse">
-                  <stop stop-color="white" />
-                  <stop offset="1" stop-color="white" stop-opacity="0" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </span>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ===== Brands end ===== -->
-
-  <!-- ===== Contact start ===== -->
-  <section id="contact" class="py-[100px] overflow-hidden">
-    <div class="container">
-      <div class="flex justify-center -mx-4">
-        <div class="w-full px-4">
-          <div class="max-w-[510px] mx-auto text-center mb-[70px] wow fadeInUp" data-wow-delay=".2s">
-            <h2 class="font-extrabold text-3xl sm:text-4xl text-black dark:text-white mb-5">
-              Contact Us
-            </h2>
-            <p class="font-semibold text-base text-body-color">
-              We are here to help you. Please reach out to us for any queries.
-            </p>
+          <div>
+            <span class="absolute bottom-0 left-14 -z-1">
+              <svg
+                width="187"
+                height="66"
+                viewBox="0 0 187 66"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  opacity="0.5"
+                  d="M122.036 4.65918C170.944 20.5767 197.688 73.1281 181.771 122.036C165.853 170.944 113.302 197.688 64.3938 181.771C15.4858 165.853 -11.2583 113.302 4.65918 64.3938C20.5767 15.4858 73.1281 -11.2583 122.036 4.65918Z"
+                  fill="url(#paint0_linear_94_97)"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_94_97"
+                    x1="4.65914"
+                    y1="64.3937"
+                    x2="138.999"
+                    y2="108.116"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="white" />
+                    <stop offset="1" stop-color="white" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+            <span class="absolute top-0 right-14 -z-1">
+              <svg
+                width="169"
+                height="67"
+                viewBox="0 0 169 67"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  opacity="0.5"
+                  d="M62.8886 63.1548C18.3442 51.2191 -8.09041 5.433 3.84523 -39.1114C15.7809 -83.6558 61.567 -110.09 106.111 -98.1548C150.656 -86.2192 177.09 -40.4331 165.155 4.11136C153.219 48.6558 107.433 75.0904 62.8886 63.1548Z"
+                  fill="url(#paint0_linear_94_98)"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_94_98"
+                    x1="165.155"
+                    y1="4.11136"
+                    x2="42.8009"
+                    y2="-28.6733"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="white" />
+                    <stop offset="1" stop-color="white" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
           </div>
         </div>
       </div>
+    </section>
+    <!-- ===== Brands end ===== -->
 
-      <div class="max-w-[770px] mx-auto shadow-faq rounded-2xl relative bg-white dark:bg-dark z-10 wow fadeInUp"
-        data-wow-delay=".3s">
+    <!-- ===== Contact start ===== -->
+    <section id="contact" class="py-[100px] overflow-hidden">
+      <div class="container">
+        <div class="flex justify-center -mx-4">
+          <div class="w-full px-4">
+            <div
+              class="max-w-[510px] mx-auto text-center mb-[70px] wow fadeInUp"
+              data-wow-delay=".2s"
+            >
+              <h2
+                class="font-extrabold text-3xl sm:text-4xl text-black dark:text-white mb-5"
+              >
+                Contact Us
+              </h2>
+              <p class="font-semibold text-base text-body-color">
+                We are here to help you. Please reach out to us for any queries.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div
-          class="py-10 px-8 sm:p-[70px] bg-white dark:bg-black rounded-2xl border border-gradient-1 dark:border-dark">
-          <form action="https://formbold.com/s/9mkqQ" method="POST">
-            <div class="flex flex-wrap -mx-4">
-              <div class="w-full md:w-1/2 px-4">
-                <div class="mb-6">
-                  <label for="" class="block font-semibold text-base text-black dark:text-white mb-3">
-                    First Name
-                  </label>
-                  <input type="text" placeholder="Enter your first name"
-                    class="w-full font-semibold text-sm text-body-color py-[14px] px-5 rounded-lg border border-gradient-1 dark:border-dark bg-transparent dark:bg-dark outline-none placeholder-body-color focus-visible:shadow-none focus:border-primary" />
+          class="max-w-[770px] mx-auto shadow-faq rounded-2xl relative bg-white dark:bg-dark z-10 wow fadeInUp"
+          data-wow-delay=".3s"
+        >
+          <div
+            class="py-10 px-8 sm:p-[70px] bg-white dark:bg-black rounded-2xl border border-gradient-1 dark:border-dark"
+          >
+            <form action="https://formbold.com/s/9mkqQ" method="POST">
+              <div class="flex flex-wrap -mx-4">
+                <div class="w-full md:w-1/2 px-4">
+                  <div class="mb-6">
+                    <label
+                      for="first_name"
+                      class="block font-semibold text-base text-black dark:text-white mb-3"
+                    >
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      name="first_name"
+                      placeholder="Enter your first name"
+                      class="w-full font-semibold text-sm text-body-color py-[14px] px-5 rounded-lg border border-gradient-1 dark:border-dark bg-transparent dark:bg-dark outline-none placeholder-body-color focus-visible:shadow-none focus:border-primary"
+                    />
+                  </div>
+                </div>
+                <div class="w-full md:w-1/2 px-4">
+                  <div class="mb-6">
+                    <label
+                      for="last_name"
+                      class="block font-semibold text-base text-black dark:text-white mb-3"
+                    >
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      name="last_name"
+                      placeholder="Enter your last name"
+                      class="w-full font-semibold text-sm text-body-color py-[14px] px-5 rounded-lg border border-gradient-1 dark:border-dark bg-transparent dark:bg-dark outline-none placeholder-body-color focus-visible:shadow-none focus:border-primary"
+                    />
+                  </div>
+                </div>
+                <div class="w-full md:w-1/2 px-4">
+                  <div class="mb-6">
+                    <label
+                      for="email"
+                      class="block font-semibold text-base text-black dark:text-white mb-3"
+                    >
+                      Business email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Enter your email"
+                      class="w-full font-semibold text-sm text-body-color py-[14px] px-5 rounded-lg border border-gradient-1 dark:border-dark bg-transparent dark:bg-dark outline-none placeholder-body-color focus-visible:shadow-none focus:border-primary"
+                    />
+                  </div>
+                </div>
+                <div class="w-full md:w-1/2 px-4">
+                  <div class="mb-6">
+                    <label
+                      for=""
+                      class="block font-semibold text-base text-black dark:text-white mb-3"
+                    >
+                      Phone number
+                    </label>
+                    <input
+                      type="text"
+                      name="phone"
+                      placeholder="Enter your phone number"
+                      class="w-full font-semibold text-sm text-body-color py-[14px] px-5 rounded-lg border border-gradient-1 dark:border-dark bg-transparent dark:bg-dark outline-none placeholder-body-color focus-visible:shadow-none focus:border-primary"
+                    />
+                  </div>
+                </div>
+                <div class="w-full px-4">
+                  <div class="mb-10">
+                    <label
+                      for="message"
+                      class="block font-semibold text-base text-black dark:text-white mb-3"
+                    >
+                      What are you looking for?
+                    </label>
+                    <textarea
+                      rows="5"
+                      name="message"
+                      placeholder="Enter your message"
+                      class="w-full font-semibold text-sm text-body-color py-[14px] px-5 rounded-lg border border-gradient-1 dark:border-dark bg-transparent dark:bg-dark outline-none placeholder-body-color focus-visible:shadow-none focus:border-primary resize-none"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="w-full px-4">
+                  <div class="text-center">
+                    <button
+                      type="submit"
+                      class="font-bold text-base text-white bg-primary rounded-xl py-3 px-10 text-center hover:shadow-primary-hover"
+                    >
+                      Submit Message
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div class="w-full md:w-1/2 px-4">
-                <div class="mb-6">
-                  <label for="" class="block font-semibold text-base text-black dark:text-white mb-3">
-                    Last Name
-                  </label>
-                  <input type="text" placeholder="Enter your last name"
-                    class="w-full font-semibold text-sm text-body-color py-[14px] px-5 rounded-lg border border-gradient-1 dark:border-dark bg-transparent dark:bg-dark outline-none placeholder-body-color focus-visible:shadow-none focus:border-primary" />
-                </div>
-              </div>
-              <div class="w-full md:w-1/2 px-4">
-                <div class="mb-6">
-                  <label for="" class="block font-semibold text-base text-black dark:text-white mb-3">
-                    Business email
-                  </label>
-                  <input type="email" placeholder="Enter your email"
-                    class="w-full font-semibold text-sm text-body-color py-[14px] px-5 rounded-lg border border-gradient-1 dark:border-dark bg-transparent dark:bg-dark outline-none placeholder-body-color focus-visible:shadow-none focus:border-primary" />
-                </div>
-              </div>
-              <div class="w-full md:w-1/2 px-4">
-                <div class="mb-6">
-                  <label for="" class="block font-semibold text-base text-black dark:text-white mb-3">
-                    Phone number
-                  </label>
-                  <input type="text" placeholder="Enter your phone number"
-                    class="w-full font-semibold text-sm text-body-color py-[14px] px-5 rounded-lg border border-gradient-1 dark:border-dark bg-transparent dark:bg-dark outline-none placeholder-body-color focus-visible:shadow-none focus:border-primary" />
-                </div>
-              </div>
-              <div class="w-full px-4">
-                <div class="mb-10">
-                  <label for="" class="block font-semibold text-base text-black dark:text-white mb-3">
-                    What are you looking for?
-                  </label>
-                  <textarea rows="5" placeholder="Enter your message"
-                    class="w-full font-semibold text-sm text-body-color py-[14px] px-5 rounded-lg border border-gradient-1 dark:border-dark bg-transparent dark:bg-dark outline-none placeholder-body-color focus-visible:shadow-none focus:border-primary resize-none"></textarea>
-                </div>
-              </div>
-              <div class="w-full px-4">
-                <div class="text-center">
-                  <button
-                    class="font-bold text-base text-white bg-primary rounded-xl py-3 px-10 text-center hover:shadow-primary-hover">
-                    Submit Message
-                  </button>
-                </div>
+            </form>
+          </div>
+          <div>
+            <span class="absolute bottom-8 -left-14 -z-1">
+              <svg
+                width="126"
+                height="156"
+                viewBox="0 0 126 156"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M62.9999 126C97.8032 126 126 97.7947 126 63C126 28.2053 97.8032 0 62.9999 0C28.2137 0 -6.10352e-05 28.2053 -6.10352e-05 63C-6.10352e-05 97.7947 28.2137 126 62.9999 126Z"
+                  fill="url(#paint0_radial_100_549)"
+                />
+                <circle
+                  cx="45.3482"
+                  cy="119.68"
+                  r="1.72625"
+                  transform="rotate(-120 45.3482 119.68)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="71.3609"
+                  cy="104.662"
+                  r="1.72625"
+                  transform="rotate(-120 71.3609 104.662)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="32.7905"
+                  cy="126.931"
+                  r="1.72625"
+                  transform="rotate(-120 32.7905 126.931)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="58.2051"
+                  cy="112.258"
+                  r="1.72625"
+                  transform="rotate(-120 58.2051 112.258)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="84.2176"
+                  cy="97.2391"
+                  r="1.72625"
+                  transform="rotate(-120 84.2176 97.2391)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="60.3668"
+                  cy="145.693"
+                  r="1.72625"
+                  transform="rotate(-120 60.3668 145.693)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="37.7528"
+                  cy="106.525"
+                  r="1.72625"
+                  transform="rotate(-120 37.7528 106.525)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="86.3793"
+                  cy="130.675"
+                  r="1.72625"
+                  transform="rotate(-120 86.3793 130.675)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="63.7654"
+                  cy="91.5066"
+                  r="1.72625"
+                  transform="rotate(-120 63.7654 91.5066)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="47.809"
+                  cy="152.944"
+                  r="1.72625"
+                  transform="rotate(-120 47.809 152.944)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="25.195"
+                  cy="113.775"
+                  r="1.72625"
+                  transform="rotate(-120 25.195 113.775)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="73.2235"
+                  cy="138.27"
+                  r="1.72625"
+                  transform="rotate(-120 73.2235 138.27)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="50.6096"
+                  cy="99.1019"
+                  r="1.72625"
+                  transform="rotate(-120 50.6096 99.1019)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="99.2361"
+                  cy="123.252"
+                  r="1.72625"
+                  transform="rotate(-120 99.2361 123.252)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="76.6221"
+                  cy="84.0833"
+                  r="1.72625"
+                  transform="rotate(-120 76.6221 84.0833)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="52.7713"
+                  cy="132.537"
+                  r="1.72625"
+                  transform="rotate(-120 52.7713 132.537)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="30.1573"
+                  cy="93.3689"
+                  r="1.72625"
+                  transform="rotate(-120 30.1573 93.3689)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="78.7839"
+                  cy="117.519"
+                  r="1.72625"
+                  transform="rotate(-120 78.7839 117.519)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="56.17"
+                  cy="78.3504"
+                  r="1.72625"
+                  transform="rotate(-120 56.17 78.3504)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="40.2136"
+                  cy="139.788"
+                  r="1.72625"
+                  transform="rotate(-120 40.2136 139.788)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="17.5996"
+                  cy="100.619"
+                  r="1.72625"
+                  transform="rotate(-120 17.5996 100.619)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="65.6281"
+                  cy="125.115"
+                  r="1.72625"
+                  transform="rotate(-120 65.6281 125.115)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="43.0141"
+                  cy="85.9466"
+                  r="1.72625"
+                  transform="rotate(-120 43.0141 85.9466)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="91.6406"
+                  cy="110.096"
+                  r="1.72625"
+                  transform="rotate(-120 91.6406 110.096)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="69.0267"
+                  cy="70.9275"
+                  r="1.72625"
+                  transform="rotate(-120 69.0267 70.9275)"
+                  fill="#8B5CF6"
+                />
+                <defs>
+                  <radialGradient
+                    id="paint0_radial_100_549"
+                    cx="0"
+                    cy="0"
+                    r="1"
+                    gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(62.9999) rotate(90) scale(126)"
+                  >
+                    <stop stop-color="white" />
+                    <stop offset="0.569" stop-color="#E4F2FE" />
+                    <stop offset="0.993" stop-color="#D2E2EF" />
+                  </radialGradient>
+                </defs>
+              </svg>
+            </span>
+            <span class="absolute -top-8 -right-14 -z-1">
+              <svg
+                width="161"
+                height="189"
+                viewBox="0 0 161 189"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M160.578 80.5879C160.578 36.3933 124.762 0.587885 80.5784 0.587887C36.3946 0.587889 0.578432 36.3933 0.578434 80.5879C0.578436 124.761 36.3947 160.588 80.5784 160.588C124.762 160.588 160.578 124.761 160.578 80.5879Z"
+                  fill="url(#paint0_radial_100_548)"
+                />
+                <circle
+                  cx="93.1069"
+                  cy="153.111"
+                  r="1.72625"
+                  transform="rotate(-120 93.1069 153.111)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="119.12"
+                  cy="138.093"
+                  r="1.72625"
+                  transform="rotate(-120 119.12 138.093)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="80.5492"
+                  cy="160.362"
+                  r="1.72625"
+                  transform="rotate(-120 80.5492 160.362)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="105.964"
+                  cy="145.688"
+                  r="1.72625"
+                  transform="rotate(-120 105.964 145.688)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="131.976"
+                  cy="130.67"
+                  r="1.72625"
+                  transform="rotate(-120 131.976 130.67)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="108.125"
+                  cy="179.124"
+                  r="1.72625"
+                  transform="rotate(-120 108.125 179.124)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="85.5115"
+                  cy="139.955"
+                  r="1.72625"
+                  transform="rotate(-120 85.5115 139.955)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="134.138"
+                  cy="164.105"
+                  r="1.72625"
+                  transform="rotate(-120 134.138 164.105)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="111.524"
+                  cy="124.937"
+                  r="1.72625"
+                  transform="rotate(-120 111.524 124.937)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="95.5677"
+                  cy="186.374"
+                  r="1.72625"
+                  transform="rotate(-120 95.5677 186.374)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="72.9537"
+                  cy="147.206"
+                  r="1.72625"
+                  transform="rotate(-120 72.9537 147.206)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="120.982"
+                  cy="171.701"
+                  r="1.72625"
+                  transform="rotate(-120 120.982 171.701)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="98.3683"
+                  cy="132.533"
+                  r="1.72625"
+                  transform="rotate(-120 98.3683 132.533)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="146.995"
+                  cy="156.682"
+                  r="1.72625"
+                  transform="rotate(-120 146.995 156.682)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="124.381"
+                  cy="117.514"
+                  r="1.72625"
+                  transform="rotate(-120 124.381 117.514)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="100.53"
+                  cy="165.968"
+                  r="1.72625"
+                  transform="rotate(-120 100.53 165.968)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="77.916"
+                  cy="126.8"
+                  r="1.72625"
+                  transform="rotate(-120 77.916 126.8)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="126.543"
+                  cy="150.95"
+                  r="1.72625"
+                  transform="rotate(-120 126.543 150.95)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="103.929"
+                  cy="111.781"
+                  r="1.72625"
+                  transform="rotate(-120 103.929 111.781)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="87.9723"
+                  cy="173.219"
+                  r="1.72625"
+                  transform="rotate(-120 87.9723 173.219)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="65.3583"
+                  cy="134.05"
+                  r="1.72625"
+                  transform="rotate(-120 65.3583 134.05)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="113.387"
+                  cy="158.546"
+                  r="1.72625"
+                  transform="rotate(-120 113.387 158.546)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="90.7728"
+                  cy="119.377"
+                  r="1.72625"
+                  transform="rotate(-120 90.7728 119.377)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="139.399"
+                  cy="143.527"
+                  r="1.72625"
+                  transform="rotate(-120 139.399 143.527)"
+                  fill="#8B5CF6"
+                />
+                <circle
+                  cx="116.785"
+                  cy="104.358"
+                  r="1.72625"
+                  transform="rotate(-120 116.785 104.358)"
+                  fill="#8B5CF6"
+                />
+                <defs>
+                  <radialGradient
+                    id="paint0_radial_100_548"
+                    cx="0"
+                    cy="0"
+                    r="1"
+                    gradientUnits="userSpaceOnUse"
+                    gradientTransform="translate(0.578434 80.5879) scale(160)"
+                  >
+                    <stop stop-color="white" />
+                    <stop offset="0.569" stop-color="#FFEEFE" />
+                    <stop offset="0.993" stop-color="#F1C6EF" />
+                  </radialGradient>
+                </defs>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== Contact end ===== -->
+
+    <!-- ===== Footer start ===== -->
+    <footer id="footer">
+      <div
+        class="bg-gradient-1 relative dark:bg-black z-10 pt-[100px] pb-[52px] wow fadeInUp"
+        data-wow-delay=".2s"
+      >
+        <div class="container">
+          <div class="flex flex-wrap -mx-4 justify-between">
+            <div class="w-full md:w-1/2 lg:w-4/12 xl:w-4/12 px-4">
+              <div class="mb-12 sm:max-w-[300px]">
+                <a href="index.html" class="inline-flex mb-8">
+                  <div class="flex items-center gap-2">
+                    <img
+                      src="images/readabled-logo.png"
+                      alt="logo"
+                      class="max-w-[60px]"
+                    />
+                    <p class="text-xl font-extrabold text-[#333] dark:hidden">
+                      Readabled.
+                    </p>
+                    <p
+                      class="text-xl font-extrabold text-[#fff] hidden dark:block"
+                    >
+                      Readabled.
+                    </p>
+                  </div>
+                  <!-- <img src="images/logo/logo.svg" alt="logo" class="max-w-[60px] dark:hidden" />
+                <img src="images/logo/logo-white.svg" alt="logo" class="max-w-[60px] dark:block hidden" /> -->
+                </a>
+
+                <h1
+                  class="font-semibold text-black dark:text-white leading-tight md:leading-tight mb-8"
+                >
+                  Online Language Learning and intervention App for Dyslexic
+                  Children
+                </h1>
+                <p class="font-semibold text-base text-body-color mb-8">
+                  A clinically validated intervention app for dyslexic children
+                  offering a wide variety of phonetic learning exercises.
+                </p>
+
+                <!-- <div class="flex items-center gap-2">
+                <img src="images/readabled-logo.png" alt="logo" class="w-24" />
+                <p class="text-3xl font-extrabold text-[#333] dark:hidden">Readabled.</p>
+                <p class="text-3xl font-extrabold text-[#fff] hidden dark:block">Readabled.</p>
+              </div> -->
               </div>
             </div>
-          </form>
+            <div class="w-full sm:w-1/2 md:w-1/2 lg:w-4/12 xl:w-4/12 px-4">
+              <div class="mb-12">
+                <h3 class="font-bold text-xl text-black dark:text-white mb-9">
+                  Quick Links
+                </h3>
+                <ul class="space-y-[18px]">
+                  <li>
+                    <a
+                      href="#features"
+                      class="font-semibold text-base text-body-color hover:text-primary inline-block"
+                    >
+                      Features
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#about"
+                      class="font-semibold text-base text-body-color hover:text-primary inline-block"
+                    >
+                      About
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#contact"
+                      class="font-semibold text-base text-body-color hover:text-primary inline-block"
+                    >
+                      Contact
+                    </a>
+                    <a
+                      href="https://app.readabled.com/"
+                      target="_blank"
+                      class="text-base font-bold text-center text-white rounded-lg ransition-all py-2 hover block bg-primary w-[150px] mt-6"
+                    >
+                      Visit the App
+                    </a>
+                  </li>
+
+                  <!-- <p class="flex items-center justify-center text-base font-medium text-white bg-primary rounded-lg py-3 px-7 transition-all w-[180px]"
+                  aria-disabled="true">
+                  Launcing Soon!
+                </p> -->
+                </ul>
+              </div>
+            </div>
+
+            <div class="w-full md:w-1/2 lg:w-3/12 xl:w-3/12 px-4">
+              <div class="mb-12">
+                <h3 class="font-bold text-xl text-black dark:text-white mb-9">
+                  Stay Updated!
+                </h3>
+                <p class="font-semibold text-base text-body-color mb-8">
+                  Be the first to know about our latest updates and features.
+                </p>
+                <form
+                  action="https://formbold.com/s/9mkqQ"
+                  method="POST"
+                  class="relative"
+                >
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    class="w-full bg-white dark:bg-dark rounded-xl border border-transparent py-[14px] px-6 font-semibold text-sm text-body-color outline-none focus-visible:shadow-none focus:border-primary"
+                  />
+                  <button
+                    class="absolute right-[6px] top-1/2 -translate-y-1/2 rounded-lg w-[42px] h-[42px] flex items-center justify-center bg-primary text-white"
+                    name="submit-btn"
+                    aria-label="submit-btn"
+                  >
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 22 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1.83333 19.25L21.0833 11L1.83333 2.75V9.16667L15.5833 11L1.83333 12.8333V19.25Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
+
         <div>
-          <span class="absolute bottom-8 -left-14 -z-1">
-            <svg width="126" height="156" viewBox="0 0 126 156" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M62.9999 126C97.8032 126 126 97.7947 126 63C126 28.2053 97.8032 0 62.9999 0C28.2137 0 -6.10352e-05 28.2053 -6.10352e-05 63C-6.10352e-05 97.7947 28.2137 126 62.9999 126Z"
-                fill="url(#paint0_radial_100_549)" />
-              <circle cx="45.3482" cy="119.68" r="1.72625" transform="rotate(-120 45.3482 119.68)" fill="#8B5CF6" />
-              <circle cx="71.3609" cy="104.662" r="1.72625" transform="rotate(-120 71.3609 104.662)" fill="#8B5CF6" />
-              <circle cx="32.7905" cy="126.931" r="1.72625" transform="rotate(-120 32.7905 126.931)" fill="#8B5CF6" />
-              <circle cx="58.2051" cy="112.258" r="1.72625" transform="rotate(-120 58.2051 112.258)" fill="#8B5CF6" />
-              <circle cx="84.2176" cy="97.2391" r="1.72625" transform="rotate(-120 84.2176 97.2391)" fill="#8B5CF6" />
-              <circle cx="60.3668" cy="145.693" r="1.72625" transform="rotate(-120 60.3668 145.693)" fill="#8B5CF6" />
-              <circle cx="37.7528" cy="106.525" r="1.72625" transform="rotate(-120 37.7528 106.525)" fill="#8B5CF6" />
-              <circle cx="86.3793" cy="130.675" r="1.72625" transform="rotate(-120 86.3793 130.675)" fill="#8B5CF6" />
-              <circle cx="63.7654" cy="91.5066" r="1.72625" transform="rotate(-120 63.7654 91.5066)" fill="#8B5CF6" />
-              <circle cx="47.809" cy="152.944" r="1.72625" transform="rotate(-120 47.809 152.944)" fill="#8B5CF6" />
-              <circle cx="25.195" cy="113.775" r="1.72625" transform="rotate(-120 25.195 113.775)" fill="#8B5CF6" />
-              <circle cx="73.2235" cy="138.27" r="1.72625" transform="rotate(-120 73.2235 138.27)" fill="#8B5CF6" />
-              <circle cx="50.6096" cy="99.1019" r="1.72625" transform="rotate(-120 50.6096 99.1019)" fill="#8B5CF6" />
-              <circle cx="99.2361" cy="123.252" r="1.72625" transform="rotate(-120 99.2361 123.252)" fill="#8B5CF6" />
-              <circle cx="76.6221" cy="84.0833" r="1.72625" transform="rotate(-120 76.6221 84.0833)" fill="#8B5CF6" />
-              <circle cx="52.7713" cy="132.537" r="1.72625" transform="rotate(-120 52.7713 132.537)" fill="#8B5CF6" />
-              <circle cx="30.1573" cy="93.3689" r="1.72625" transform="rotate(-120 30.1573 93.3689)" fill="#8B5CF6" />
-              <circle cx="78.7839" cy="117.519" r="1.72625" transform="rotate(-120 78.7839 117.519)" fill="#8B5CF6" />
-              <circle cx="56.17" cy="78.3504" r="1.72625" transform="rotate(-120 56.17 78.3504)" fill="#8B5CF6" />
-              <circle cx="40.2136" cy="139.788" r="1.72625" transform="rotate(-120 40.2136 139.788)" fill="#8B5CF6" />
-              <circle cx="17.5996" cy="100.619" r="1.72625" transform="rotate(-120 17.5996 100.619)" fill="#8B5CF6" />
-              <circle cx="65.6281" cy="125.115" r="1.72625" transform="rotate(-120 65.6281 125.115)" fill="#8B5CF6" />
-              <circle cx="43.0141" cy="85.9466" r="1.72625" transform="rotate(-120 43.0141 85.9466)" fill="#8B5CF6" />
-              <circle cx="91.6406" cy="110.096" r="1.72625" transform="rotate(-120 91.6406 110.096)" fill="#8B5CF6" />
-              <circle cx="69.0267" cy="70.9275" r="1.72625" transform="rotate(-120 69.0267 70.9275)" fill="#8B5CF6" />
+          <span class="absolute left-0 bottom-0 -z-1">
+            <svg
+              width="142"
+              height="73"
+              viewBox="0 0 142 73"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M97.5778 80C97.5778 35.8054 61.7615 -5.42825e-06 17.5778 -3.49691e-06C-26.606 -1.56558e-06 -62.4222 35.8054 -62.4222 80C-62.4222 124.173 -26.606 160 17.5778 160C61.7615 160 97.5778 124.173 97.5778 80Z"
+                fill="url(#paint0_radial_106_149)"
+              />
+              <circle
+                cx="103.496"
+                cy="55.2326"
+                r="1.84993"
+                transform="rotate(-150.952 103.496 55.2326)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="95.5911"
+                cy="69.464"
+                r="1.84993"
+                transform="rotate(-150.952 95.5911 69.464)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="111.22"
+                cy="41.3244"
+                r="1.84993"
+                transform="rotate(-150.952 111.22 41.3244)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="73.6349"
+                cy="75.4679"
+                r="1.84993"
+                transform="rotate(-150.952 73.6349 75.4679)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="131.636"
+                cy="70.862"
+                r="1.84993"
+                transform="rotate(-150.952 131.636 70.862)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="89.2642"
+                cy="47.3283"
+                r="1.84993"
+                transform="rotate(-150.952 89.2642 47.3283)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="81.3598"
+                cy="61.5597"
+                r="1.84993"
+                transform="rotate(-150.952 81.3598 61.5597)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="139.36"
+                cy="56.9538"
+                r="1.84993"
+                transform="rotate(-150.952 139.36 56.9538)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="96.9888"
+                cy="33.4196"
+                r="1.84993"
+                transform="rotate(-150.952 96.9888 33.4196)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="59.4034"
+                cy="67.5636"
+                r="1.84993"
+                transform="rotate(-150.952 59.4034 67.5636)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="117.404"
+                cy="62.9572"
+                r="1.84993"
+                transform="rotate(-150.952 117.404 62.9572)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="75.0325"
+                cy="39.4235"
+                r="1.84993"
+                transform="rotate(-150.952 75.0325 39.4235)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="67.1284"
+                cy="53.6554"
+                r="1.84993"
+                transform="rotate(-150.952 67.1284 53.6554)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="125.129"
+                cy="49.049"
+                r="1.84993"
+                transform="rotate(-150.952 125.129 49.049)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="82.7576"
+                cy="25.5158"
+                r="1.84993"
+                transform="rotate(-150.952 82.7576 25.5158)"
+                fill="#8B5CF6"
+              />
               <defs>
-                <radialGradient id="paint0_radial_100_549" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                  gradientTransform="translate(62.9999) rotate(90) scale(126)">
+                <radialGradient
+                  id="paint0_radial_106_149"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(-62.4222 80) scale(160)"
+                >
+                  <stop stop-color="#FFEEFE" />
+                  <stop offset="0.569" stop-color="#FFEEFE" />
+                  <stop offset="0.993" stop-color="#F1C6EF" />
+                </radialGradient>
+              </defs>
+            </svg>
+          </span>
+          <span class="absolute right-0 top-0 -z-1">
+            <svg
+              width="120"
+              height="75"
+              viewBox="0 0 120 75"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M103 75C137.804 75 166 46.7947 166 12C166 -22.7947 137.804 -51 103 -51C68.2141 -51 40.0003 -22.7947 40.0003 12C40.0003 46.7947 68.2141 75 103 75Z"
+                fill="url(#paint0_radial_106_293)"
+              />
+              <circle
+                cx="32.5072"
+                cy="32.5491"
+                r="1.84993"
+                transform="rotate(-157.548 32.5072 32.5491)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="38.7245"
+                cy="17.5037"
+                r="1.84993"
+                transform="rotate(-157.548 38.7245 17.5037)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="44.9415"
+                cy="2.4583"
+                r="1.84993"
+                transform="rotate(-157.548 44.9415 2.4583)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="62.2536"
+                cy="44.8406"
+                r="1.84993"
+                transform="rotate(-157.548 62.2536 44.8406)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="17.4619"
+                cy="26.3323"
+                r="1.84993"
+                transform="rotate(-157.548 17.4619 26.3323)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="68.4737"
+                cy="29.7972"
+                r="1.84993"
+                transform="rotate(-157.548 68.4737 29.7972)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="23.6791"
+                cy="11.2869"
+                r="1.84993"
+                transform="rotate(-157.548 23.6791 11.2869)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="74.6905"
+                cy="14.7513"
+                r="1.84993"
+                transform="rotate(-157.548 74.6905 14.7513)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="80.908"
+                cy="-0.293648"
+                r="1.84993"
+                transform="rotate(-157.548 80.908 -0.293648)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="47.2109"
+                cy="38.6253"
+                r="1.84993"
+                transform="rotate(-157.548 47.2109 38.6253)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="2.41638"
+                cy="20.115"
+                r="1.84993"
+                transform="rotate(-157.548 2.41638 20.115)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="53.4277"
+                cy="23.5794"
+                r="1.84993"
+                transform="rotate(-157.548 53.4277 23.5794)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="8.63378"
+                cy="5.06963"
+                r="1.84993"
+                transform="rotate(-157.548 8.63378 5.06963)"
+                fill="#8B5CF6"
+              />
+              <circle
+                cx="59.6451"
+                cy="8.53448"
+                r="1.84993"
+                transform="rotate(-157.548 59.6451 8.53448)"
+                fill="#8B5CF6"
+              />
+              <defs>
+                <radialGradient
+                  id="paint0_radial_106_293"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(103 -51) rotate(90) scale(126)"
+                >
                   <stop stop-color="white" />
                   <stop offset="0.569" stop-color="#E4F2FE" />
                   <stop offset="0.993" stop-color="#D2E2EF" />
@@ -720,275 +1838,76 @@
               </defs>
             </svg>
           </span>
-          <span class="absolute -top-8 -right-14 -z-1">
-            <svg width="161" height="189" viewBox="0 0 161 189" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M160.578 80.5879C160.578 36.3933 124.762 0.587885 80.5784 0.587887C36.3946 0.587889 0.578432 36.3933 0.578434 80.5879C0.578436 124.761 36.3947 160.588 80.5784 160.588C124.762 160.588 160.578 124.761 160.578 80.5879Z"
-                fill="url(#paint0_radial_100_548)" />
-              <circle cx="93.1069" cy="153.111" r="1.72625" transform="rotate(-120 93.1069 153.111)" fill="#8B5CF6" />
-              <circle cx="119.12" cy="138.093" r="1.72625" transform="rotate(-120 119.12 138.093)" fill="#8B5CF6" />
-              <circle cx="80.5492" cy="160.362" r="1.72625" transform="rotate(-120 80.5492 160.362)" fill="#8B5CF6" />
-              <circle cx="105.964" cy="145.688" r="1.72625" transform="rotate(-120 105.964 145.688)" fill="#8B5CF6" />
-              <circle cx="131.976" cy="130.67" r="1.72625" transform="rotate(-120 131.976 130.67)" fill="#8B5CF6" />
-              <circle cx="108.125" cy="179.124" r="1.72625" transform="rotate(-120 108.125 179.124)" fill="#8B5CF6" />
-              <circle cx="85.5115" cy="139.955" r="1.72625" transform="rotate(-120 85.5115 139.955)" fill="#8B5CF6" />
-              <circle cx="134.138" cy="164.105" r="1.72625" transform="rotate(-120 134.138 164.105)" fill="#8B5CF6" />
-              <circle cx="111.524" cy="124.937" r="1.72625" transform="rotate(-120 111.524 124.937)" fill="#8B5CF6" />
-              <circle cx="95.5677" cy="186.374" r="1.72625" transform="rotate(-120 95.5677 186.374)" fill="#8B5CF6" />
-              <circle cx="72.9537" cy="147.206" r="1.72625" transform="rotate(-120 72.9537 147.206)" fill="#8B5CF6" />
-              <circle cx="120.982" cy="171.701" r="1.72625" transform="rotate(-120 120.982 171.701)" fill="#8B5CF6" />
-              <circle cx="98.3683" cy="132.533" r="1.72625" transform="rotate(-120 98.3683 132.533)" fill="#8B5CF6" />
-              <circle cx="146.995" cy="156.682" r="1.72625" transform="rotate(-120 146.995 156.682)" fill="#8B5CF6" />
-              <circle cx="124.381" cy="117.514" r="1.72625" transform="rotate(-120 124.381 117.514)" fill="#8B5CF6" />
-              <circle cx="100.53" cy="165.968" r="1.72625" transform="rotate(-120 100.53 165.968)" fill="#8B5CF6" />
-              <circle cx="77.916" cy="126.8" r="1.72625" transform="rotate(-120 77.916 126.8)" fill="#8B5CF6" />
-              <circle cx="126.543" cy="150.95" r="1.72625" transform="rotate(-120 126.543 150.95)" fill="#8B5CF6" />
-              <circle cx="103.929" cy="111.781" r="1.72625" transform="rotate(-120 103.929 111.781)" fill="#8B5CF6" />
-              <circle cx="87.9723" cy="173.219" r="1.72625" transform="rotate(-120 87.9723 173.219)" fill="#8B5CF6" />
-              <circle cx="65.3583" cy="134.05" r="1.72625" transform="rotate(-120 65.3583 134.05)" fill="#8B5CF6" />
-              <circle cx="113.387" cy="158.546" r="1.72625" transform="rotate(-120 113.387 158.546)" fill="#8B5CF6" />
-              <circle cx="90.7728" cy="119.377" r="1.72625" transform="rotate(-120 90.7728 119.377)" fill="#8B5CF6" />
-              <circle cx="139.399" cy="143.527" r="1.72625" transform="rotate(-120 139.399 143.527)" fill="#8B5CF6" />
-              <circle cx="116.785" cy="104.358" r="1.72625" transform="rotate(-120 116.785 104.358)" fill="#8B5CF6" />
-              <defs>
-                <radialGradient id="paint0_radial_100_548" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                  gradientTransform="translate(0.578434 80.5879) scale(160)">
-                  <stop stop-color="white" />
-                  <stop offset="0.569" stop-color="#FFEEFE" />
-                  <stop offset="0.993" stop-color="#F1C6EF" />
-                </radialGradient>
-              </defs>
-            </svg>
-          </span>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ===== Contact end ===== -->
-
-  <!-- ===== Footer start ===== -->
-  <footer id="footer">
-    <div class="bg-gradient-1 relative dark:bg-black z-10 pt-[100px] pb-[52px] wow fadeInUp" data-wow-delay=".2s">
-      <div class="container">
-        <div class="flex flex-wrap -mx-4 justify-between">
-          <div class="w-full md:w-1/2 lg:w-4/12 xl:w-4/12 px-4">
-            <div class="mb-12 sm:max-w-[300px]">
-              <a href="index.html" class="inline-flex mb-8">
-                <div class="flex items-center gap-2">
-                  <img src="images/readabled-logo.png" alt="logo" class="max-w-[60px]" />
-                  <p class="text-xl font-extrabold text-[#333] dark:hidden">Readabled.</p>
-                  <p class="text-xl font-extrabold text-[#fff] hidden dark:block">Readabled.</p>
-                </div>
-                <!-- <img src="images/logo/logo.svg" alt="logo" class="max-w-[60px] dark:hidden" />
-                <img src="images/logo/logo-white.svg" alt="logo" class="max-w-[60px] dark:block hidden" /> -->
-              </a>
-
-              <h1 class="font-semibold text-black dark:text-white leading-tight md:leading-tight mb-8">
-                Online Language Learning and intervention App for Dyslexic Children
-              </h1>
-              <p class="font-semibold text-base text-body-color mb-8">
-                A clinically validated intervention app for dyslexic children offering a wide variety of phonetic
-                learning exercises.
-              </p>
-
-              <!-- <div class="flex items-center gap-2">
-                <img src="images/readabled-logo.png" alt="logo" class="w-24" />
-                <p class="text-3xl font-extrabold text-[#333] dark:hidden">Readabled.</p>
-                <p class="text-3xl font-extrabold text-[#fff] hidden dark:block">Readabled.</p>
-              </div> -->
-
-
-            </div>
-          </div>
-          <div class="w-full sm:w-1/2 md:w-1/2 lg:w-4/12 xl:w-4/12 px-4">
-            <div class="mb-12">
-              <h3 class="font-bold text-xl text-black dark:text-white mb-9">
-                Quick Links
-              </h3>
-              <ul class="space-y-[18px]">
-                <li>
-                  <a href="#features" class="font-semibold text-base text-body-color hover:text-primary inline-block">
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a href="#about" class="font-semibold text-base text-body-color hover:text-primary inline-block">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#contact" class="font-semibold text-base text-body-color hover:text-primary inline-block">
-                    Contact
-                  </a>
-                  <a href="https://app.readabled.com/" target="_blank"
-                    class="text-base font-bold text-center text-white rounded-lg ransition-all py-2 hover block bg-primary w-[150px] mt-6">
-                    Visit the App
-                  </a>
-                </li>
-
-                <!-- <p class="flex items-center justify-center text-base font-medium text-white bg-primary rounded-lg py-3 px-7 transition-all w-[180px]"
-                  aria-disabled="true">
-                  Launcing Soon!
-                </p> -->
-
-              </ul>
-
-
-            </div>
-
-          </div>
-
-          <div class="w-full md:w-1/2 lg:w-3/12 xl:w-3/12 px-4">
-            <div class="mb-12">
-              <h3 class="font-bold text-xl text-black dark:text-white mb-9">
-                Stay Updated!
-              </h3>
-              <p class="font-semibold text-base text-body-color mb-8">
-                Be the first to know about our latest updates and features.
-              </p>
-              <form action="https://formbold.com/s/9mkqQ" method="POST" class="relative">
-                <input type="email" placeholder="Enter your email"
-                  class="w-full bg-white dark:bg-dark rounded-xl border border-transparent py-[14px] px-6 font-semibold text-sm text-body-color outline-none focus-visible:shadow-none focus:border-primary" />
-                <button
-                  class="absolute right-[6px] top-1/2 -translate-y-1/2 rounded-lg w-[42px] h-[42px] flex items-center justify-center bg-primary text-white"
-                  name="submit-btn" aria-label="submit-btn">
-                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.83333 19.25L21.0833 11L1.83333 2.75V9.16667L15.5833 11L1.83333 12.8333V19.25Z"
-                      fill="white" />
-                  </svg>
-                </button>
-              </form>
-            </div>
-          </div>
         </div>
       </div>
 
-      <div>
-        <span class="absolute left-0 bottom-0 -z-1">
-          <svg width="142" height="73" viewBox="0 0 142 73" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M97.5778 80C97.5778 35.8054 61.7615 -5.42825e-06 17.5778 -3.49691e-06C-26.606 -1.56558e-06 -62.4222 35.8054 -62.4222 80C-62.4222 124.173 -26.606 160 17.5778 160C61.7615 160 97.5778 124.173 97.5778 80Z"
-              fill="url(#paint0_radial_106_149)" />
-            <circle cx="103.496" cy="55.2326" r="1.84993" transform="rotate(-150.952 103.496 55.2326)" fill="#8B5CF6" />
-            <circle cx="95.5911" cy="69.464" r="1.84993" transform="rotate(-150.952 95.5911 69.464)" fill="#8B5CF6" />
-            <circle cx="111.22" cy="41.3244" r="1.84993" transform="rotate(-150.952 111.22 41.3244)" fill="#8B5CF6" />
-            <circle cx="73.6349" cy="75.4679" r="1.84993" transform="rotate(-150.952 73.6349 75.4679)" fill="#8B5CF6" />
-            <circle cx="131.636" cy="70.862" r="1.84993" transform="rotate(-150.952 131.636 70.862)" fill="#8B5CF6" />
-            <circle cx="89.2642" cy="47.3283" r="1.84993" transform="rotate(-150.952 89.2642 47.3283)" fill="#8B5CF6" />
-            <circle cx="81.3598" cy="61.5597" r="1.84993" transform="rotate(-150.952 81.3598 61.5597)" fill="#8B5CF6" />
-            <circle cx="139.36" cy="56.9538" r="1.84993" transform="rotate(-150.952 139.36 56.9538)" fill="#8B5CF6" />
-            <circle cx="96.9888" cy="33.4196" r="1.84993" transform="rotate(-150.952 96.9888 33.4196)" fill="#8B5CF6" />
-            <circle cx="59.4034" cy="67.5636" r="1.84993" transform="rotate(-150.952 59.4034 67.5636)" fill="#8B5CF6" />
-            <circle cx="117.404" cy="62.9572" r="1.84993" transform="rotate(-150.952 117.404 62.9572)" fill="#8B5CF6" />
-            <circle cx="75.0325" cy="39.4235" r="1.84993" transform="rotate(-150.952 75.0325 39.4235)" fill="#8B5CF6" />
-            <circle cx="67.1284" cy="53.6554" r="1.84993" transform="rotate(-150.952 67.1284 53.6554)" fill="#8B5CF6" />
-            <circle cx="125.129" cy="49.049" r="1.84993" transform="rotate(-150.952 125.129 49.049)" fill="#8B5CF6" />
-            <circle cx="82.7576" cy="25.5158" r="1.84993" transform="rotate(-150.952 82.7576 25.5158)" fill="#8B5CF6" />
-            <defs>
-              <radialGradient id="paint0_radial_106_149" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                gradientTransform="translate(-62.4222 80) scale(160)">
-                <stop stop-color="#FFEEFE" />
-                <stop offset="0.569" stop-color="#FFEEFE" />
-                <stop offset="0.993" stop-color="#F1C6EF" />
-              </radialGradient>
-            </defs>
-          </svg>
-        </span>
-        <span class="absolute right-0 top-0 -z-1">
-          <svg width="120" height="75" viewBox="0 0 120 75" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M103 75C137.804 75 166 46.7947 166 12C166 -22.7947 137.804 -51 103 -51C68.2141 -51 40.0003 -22.7947 40.0003 12C40.0003 46.7947 68.2141 75 103 75Z"
-              fill="url(#paint0_radial_106_293)" />
-            <circle cx="32.5072" cy="32.5491" r="1.84993" transform="rotate(-157.548 32.5072 32.5491)" fill="#8B5CF6" />
-            <circle cx="38.7245" cy="17.5037" r="1.84993" transform="rotate(-157.548 38.7245 17.5037)" fill="#8B5CF6" />
-            <circle cx="44.9415" cy="2.4583" r="1.84993" transform="rotate(-157.548 44.9415 2.4583)" fill="#8B5CF6" />
-            <circle cx="62.2536" cy="44.8406" r="1.84993" transform="rotate(-157.548 62.2536 44.8406)" fill="#8B5CF6" />
-            <circle cx="17.4619" cy="26.3323" r="1.84993" transform="rotate(-157.548 17.4619 26.3323)" fill="#8B5CF6" />
-            <circle cx="68.4737" cy="29.7972" r="1.84993" transform="rotate(-157.548 68.4737 29.7972)" fill="#8B5CF6" />
-            <circle cx="23.6791" cy="11.2869" r="1.84993" transform="rotate(-157.548 23.6791 11.2869)" fill="#8B5CF6" />
-            <circle cx="74.6905" cy="14.7513" r="1.84993" transform="rotate(-157.548 74.6905 14.7513)" fill="#8B5CF6" />
-            <circle cx="80.908" cy="-0.293648" r="1.84993" transform="rotate(-157.548 80.908 -0.293648)"
-              fill="#8B5CF6" />
-            <circle cx="47.2109" cy="38.6253" r="1.84993" transform="rotate(-157.548 47.2109 38.6253)" fill="#8B5CF6" />
-            <circle cx="2.41638" cy="20.115" r="1.84993" transform="rotate(-157.548 2.41638 20.115)" fill="#8B5CF6" />
-            <circle cx="53.4277" cy="23.5794" r="1.84993" transform="rotate(-157.548 53.4277 23.5794)" fill="#8B5CF6" />
-            <circle cx="8.63378" cy="5.06963" r="1.84993" transform="rotate(-157.548 8.63378 5.06963)" fill="#8B5CF6" />
-            <circle cx="59.6451" cy="8.53448" r="1.84993" transform="rotate(-157.548 59.6451 8.53448)" fill="#8B5CF6" />
-            <defs>
-              <radialGradient id="paint0_radial_106_293" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                gradientTransform="translate(103 -51) rotate(90) scale(126)">
-                <stop stop-color="white" />
-                <stop offset="0.569" stop-color="#E4F2FE" />
-                <stop offset="0.993" stop-color="#D2E2EF" />
-              </radialGradient>
-            </defs>
-          </svg>
-        </span>
+      <div class="bg-white dark:bg-dark p-7 wow fadeInUp" data-wow-delay=".25s">
+        <p class="font-semibold text-base text-body-color text-center">
+          Copyright by Hermit Labs
+          <script>
+            document.write(new Date().getFullYear())
+          </script>
+          . All rights reserved.
+        </p>
       </div>
-    </div>
+    </footer>
+    <!-- ===== Footer end ===== -->
 
-    <div class="bg-white dark:bg-dark p-7 wow fadeInUp" data-wow-delay=".25s">
-      <p class="font-semibold text-base text-body-color text-center">
-        Copyright by Hermit Labs
-        <script>
-          document.write(new Date().getFullYear())
-        </script>. All rights reserved.
-      </p>
-    </div>
-  </footer>
-  <!-- ===== Footer end ===== -->
+    <!-- ====== Back To Top Start -->
+    <a
+      x-show="scrolledFromTop"
+      href="javascript:void(0)"
+      class="flex items-center justify-center bg-primary text-white w-10 h-10 rounded-lg fixed bottom-[20px] right-[100px] md:right-[120px] md:bottom-[30px] left-auto z-[999] hover:shadow-signUp transition back-to-top shadow-md"
+    >
+      <span
+        class="w-3 h-3 border-t border-l border-white rotate-45 mt-[6px]"
+      ></span>
+    </a>
+    <!-- ====== Back To Top End -->
 
-  <!-- ====== Back To Top Start -->
-  <a x-show="scrolledFromTop" href="javascript:void(0)"
-    class="flex items-center justify-center bg-primary text-white w-10 h-10 rounded-lg fixed bottom-[20px] right-[100px] md:right-[120px] md:bottom-[30px] left-auto z-[999] hover:shadow-signUp transition back-to-top shadow-md">
-    <span class="w-3 h-3 border-t border-l border-white rotate-45 mt-[6px]"></span>
-  </a>
-  <!-- ====== Back To Top End -->
+    <!-- ===== JS Files ====== -->
+    <script>
+      // ==== for menu scroll
+      const pageLink = document.querySelectorAll(".menu-scroll")
 
-  <!-- ===== JS Files ====== -->
-  <script>
-    // ==== for menu scroll
-    const pageLink = document.querySelectorAll(".menu-scroll");
+      pageLink.forEach((elem) => {
+        elem.addEventListener("click", (e) => {
+          e.preventDefault()
+          document.querySelector(elem.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+            offsetTop: 1 - 60,
+          })
+        })
+      })
 
-    pageLink.forEach((elem) => {
-      elem.addEventListener("click", (e) => {
-        e.preventDefault();
-        document.querySelector(elem.getAttribute("href")).scrollIntoView({
-          behavior: "smooth",
-          offsetTop: 1 - 60,
-        });
-      });
-    });
+      // section menu active
+      function onScroll(event) {
+        const sections = document.querySelectorAll(".scroll-menu")
+        const scrollPos =
+          window.pageYOffset ||
+          document.documentElement.scrollTop ||
+          document.body.scrollTop
 
-    // section menu active
-    function onScroll(event) {
-      const sections = document.querySelectorAll(".scroll-menu");
-      const scrollPos =
-        window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop;
-
-      for (let i = 0; i < sections.length; i++) {
-        const currLink = sections[i];
-        const val = currLink.getAttribute("href");
-        const refElement = document.querySelector(val);
-        const scrollTopMinus = scrollPos + 73;
-        if (
-          refElement.offsetTop <= scrollTopMinus &&
-          refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
-        ) {
-          document
-            .querySelector(".scroll-menu")
-            .classList.remove("text-primary");
-          currLink.classList.add("text-primary");
-        } else {
-          currLink.classList.remove("text-primary");
+        for (let i = 0; i < sections.length; i++) {
+          const currLink = sections[i]
+          const val = currLink.getAttribute("href")
+          const refElement = document.querySelector(val)
+          const scrollTopMinus = scrollPos + 73
+          if (
+            refElement.offsetTop <= scrollTopMinus &&
+            refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
+          ) {
+            document
+              .querySelector(".scroll-menu")
+              .classList.remove("text-primary")
+            currLink.classList.add("text-primary")
+          } else {
+            currLink.classList.remove("text-primary")
+          }
         }
       }
-    }
 
-    window.document.addEventListener("scroll", onScroll);
-  </script>
-</body>
-
+      window.document.addEventListener("scroll", onScroll)
+    </script>
+  </body>
 </html>
