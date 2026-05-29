@@ -98,25 +98,34 @@
                     <a
                       href="#features"
                       :class="scrolledFromTop ? 'py-2 lg:py-6' : 'py-2 lg:py-8' "
-                      class="scroll-menu text-base font-medium text-body-color hover:text-primary lg:inline-flex flex lg:ml-8 xl:ml-12"
+                      class="scroll-menu text-base font-medium text-body-color hover:text-primary lg:inline-flex flex lg:ml-6 xl:ml-10"
                     >
                       Features
                     </a>
                   </li>
                   <li>
                     <a
-                      href="#about"
+                      href="about.html"
                       :class="scrolledFromTop ? 'py-2 lg:py-6' : 'py-2 lg:py-8' "
-                      class="scroll-menu text-base font-medium text-body-color hover:text-primary lg:inline-flex flex lg:ml-8 xl:ml-12"
+                      class="text-base font-medium text-body-color hover:text-primary lg:inline-flex flex lg:ml-6 xl:ml-10"
                     >
                       About
                     </a>
                   </li>
                   <li>
                     <a
+                      href="events.html"
+                      :class="scrolledFromTop ? 'py-2 lg:py-6' : 'py-2 lg:py-8' "
+                      class="text-base font-medium text-body-color hover:text-primary lg:inline-flex flex lg:ml-6 xl:ml-10"
+                    >
+                      Events
+                    </a>
+                  </li>
+                  <li>
+                    <a
                       href="#contact"
                       :class="scrolledFromTop ? 'py-2 lg:py-6' : 'py-2 lg:py-8' "
-                      class="scroll-menu text-base font-medium text-body-color hover:text-primary lg:inline-flex flex lg:ml-8 xl:ml-12"
+                      class="scroll-menu text-base font-medium text-body-color hover:text-primary lg:inline-flex flex lg:ml-6 xl:ml-10"
                     >
                       Contact
                     </a>
@@ -124,19 +133,23 @@
                 </ul>
               </nav>
             </div>
-            <div class="xl:pl-20 md:flex justify-end hidden pr-16 lg:pr-0">
-              <!-- <p class="flex items-center justify-center text-base font-medium text-white bg-primary rounded-lg py-3 px-7 transition-all"
-              aria-disabled="true">
-              Launcing Soon!
-            </p> -->
+            <div class="xl:pl-12 md:flex justify-end items-center hidden pr-16 lg:pr-0 gap-3">
+              <a
+                href="https://chromewebstore.google.com/detail/readabled/peogpficbljpkkhjochnjeiinflkeobe"
+                target="_blank"
+                rel="noopener"
+                class="hidden xl:inline-flex items-center border-2 border-gray-200 rounded-xl p-1.5 bg-white transition-all hover:shadow-md hover:border-primary"
+              >
+                <img src="images/logo/chrome-webstore.png" alt="Available in the Chrome Web Store" class="h-10" />
+              </a>
               <a
                 href="https://app.readabled.com/"
                 target="_blank"
-                class="text-base font-bold text-white bg-primary rounded-xl py-4 px-10 transition-all hover:shadow-primary-hover mr-9"
+                class="text-base font-bold text-white bg-primary rounded-xl py-4 px-8 transition-all hover:shadow-primary-hover"
               >
                 Visit the App
               </a>
-              <div>
+              <div class="ml-6">
                 <label
                   for="darkToggler"
                   class="cursor-pointer w-9 h-9 md:w-14 md:h-14 rounded-full flex items-center justify-center bg-gray-2 dark:bg-dark-bg text-black dark:text-white"
@@ -200,6 +213,17 @@
                 class="mb-14 lg:mb-0 max-w-[570px] wow fadeInUp"
                 data-wow-delay=".2s"
               >
+                <a
+                  href="events.html#featured-award"
+                  class="inline-flex items-center bg-white dark:bg-black bg-opacity-90 dark:bg-opacity-90 rounded-full pl-2 pr-4 py-1.5 mb-5 shadow-sm hover:shadow-md transition-all group"
+                >
+                  <span class="bg-primary text-white text-xs font-bold rounded-full px-3 py-1 mr-3">NEW</span>
+                  <svg class="w-4 h-4 text-primary mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <span class="font-semibold text-sm text-black dark:text-white">
+                    Top 30 in IndiaAI Innovation Challenge 2026
+                  </span>
+                  <svg class="w-4 h-4 ml-2 text-primary group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                </a>
                 <h1
                   class="font-bold text-primary text-4xl md:text-[45px] leading-tight md:leading-tight"
                 >
@@ -252,16 +276,14 @@
             </div>
             <div class="w-full lg:w-1/2 px-4">
               <div
-                class="text-center relative z-10 h-[300px] wow fadeInUp"
+                class="text-center relative z-10 wow fadeInUp"
                 data-wow-delay=".25s"
               >
                 <img
-                  src="images/hero/hero-img.svg"
+                  src="images/cta/cta-image-4.png"
                   alt="hero-image"
                   class="max-w-[300px] lg:max-w-[500px] mx-auto"
                 />
-                <!-- <img src="images/hero/readabled-core-new-ui.jpg" alt="hero-image"
-                class="max-w-[300px] lg:max-w-[500px] mx-auto" /> -->
 
                 <span
                   class="absolute -z-1 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[350px] w-full h-[350px] bg-white dark:bg-dark bg-opacity-25 dark:bg-opacity-25 shadow-shape-1 rounded-full hidden lg:block"
@@ -487,9 +509,9 @@
               data-wow-delay=".2s"
             >
               <img
-                src="images/about/about-image-3.svg"
+                src="images/about/readabled-core-new-ui.jpg"
                 alt="image"
-                class="max-full"
+                class="max-full rounded-xl"
               />
             </div>
           </div>
@@ -549,9 +571,9 @@
               data-wow-delay=".2s"
             >
               <img
-                src="images/about/about-image-4.svg"
+                src="images/home/app-img.png"
                 alt="image"
-                class="max-full"
+                class="max-full rounded-xl"
               />
             </div>
           </div>
@@ -594,6 +616,86 @@
       </div>
     </section>
     <!-- ===== About end ===== -->
+
+    <!-- ===== Chrome Extension start ===== -->
+    <section id="chrome-extension" class="pt-[100px]">
+      <div class="container">
+        <div
+          class="bg-gradient-to-r from-primary to-gradient-2 dark:from-[#3c3e56] dark:to-black rounded-[20px] px-7 sm:px-10 md:px-14 lg:px-16 py-12 md:py-16 relative overflow-hidden wow fadeInUp"
+          data-wow-delay=".2s"
+        >
+          <div class="flex flex-wrap items-center -mx-4 relative z-10">
+            <div class="w-full lg:w-1/2 px-4 mb-10 lg:mb-0">
+              <div class="inline-flex items-center bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-4 py-2 mb-5">
+                <svg class="w-5 h-5 text-white mr-2" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24 4C12.954 4 4 12.954 4 24s8.954 20 20 20 20-8.954 20-20S35.046 4 24 4zm0 32a12 12 0 1 1 0-24 12 12 0 0 1 0 24z" fill="currentColor" opacity=".25"/>
+                  <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="3" fill="none"/>
+                  <path d="M24 4v12M44 24h-12M24 44V32M4 24h12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <span class="text-white font-bold text-sm">Now in the Chrome Web Store</span>
+              </div>
+              <h2 class="font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-tight mb-5">
+                Practice Reading <span class="text-yellow-300">Anywhere</span> on the Web
+              </h2>
+              <p class="text-white text-opacity-90 text-lg mb-8 max-w-[520px]">
+                Install the readabled Chrome extension to click any word on any webpage and instantly hear it, break it down phonetically, and practice pronunciation — with multilingual support and instant AI feedback.
+              </p>
+
+              <ul class="space-y-3 mb-8 max-w-[520px]">
+                <li class="flex items-start text-white">
+                  <span class="w-6 h-6 rounded-full bg-white bg-opacity-25 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                  </span>
+                  <span class="text-white text-opacity-95">Click any word on the web to practice phonetically</span>
+                </li>
+                <li class="flex items-start text-white">
+                  <span class="w-6 h-6 rounded-full bg-white bg-opacity-25 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                  </span>
+                  <span class="text-white text-opacity-95">Multilingual support with instant pronunciation feedback</span>
+                </li>
+                <li class="flex items-start text-white">
+                  <span class="w-6 h-6 rounded-full bg-white bg-opacity-25 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                  </span>
+                  <span class="text-white text-opacity-95">Works on any English webpage — no special site needed</span>
+                </li>
+              </ul>
+
+              <div class="flex flex-wrap gap-3">
+                <a
+                  href="https://chromewebstore.google.com/detail/readabled/peogpficbljpkkhjochnjeiinflkeobe"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center border-2 border-white rounded-xl p-2 bg-white transition-all hover:opacity-90 hover:shadow-lg"
+                >
+                  <img src="images/logo/chrome-webstore.png" alt="Available in the Chrome Web Store" class="h-12" />
+                </a>
+              </div>
+            </div>
+            <div class="w-full lg:w-1/2 px-4">
+              <div class="flex flex-col gap-4">
+                <div class="rounded-[16px] overflow-hidden shadow-2xl">
+                  <img
+                    src="images/home/chrome-ext1.png"
+                    alt="readabled Chrome Extension screenshot 1"
+                    class="w-full h-auto"
+                  />
+                </div>
+                <div class="rounded-[16px] overflow-hidden shadow-2xl">
+                  <img
+                    src="images/home/chrome-ext2.jpg"
+                    alt="readabled Chrome Extension screenshot 2"
+                    class="w-full h-auto"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== Chrome Extension end ===== -->
 
     <!-- ===== How Works start ===== -->
     <section id="how-works" class="pt-[100px]">
@@ -781,6 +883,109 @@
       </div>
     </section>
     <!-- ===== Call to Action end ===== -->
+
+    <!-- ===== Recognition Highlights start ===== -->
+    <section id="recognition" class="pt-[100px]">
+      <div class="container">
+        <div class="flex justify-center -mx-4">
+          <div class="w-full px-4">
+            <div
+              class="max-w-[600px] mx-auto text-center mb-[50px] wow fadeInUp"
+              data-wow-delay=".2s"
+            >
+              <span class="font-bold text-base text-primary block mb-2">
+                Awards & Recognition
+              </span>
+              <h2 class="font-extrabold text-3xl sm:text-4xl text-black dark:text-white mb-5">
+                Recognized by the Government of India
+              </h2>
+              <p class="font-semibold text-base text-body-color">
+                From flagship national summits to grants under the IndiaAI Mission — our work is being recognized at the highest levels.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap -mx-4">
+          <!-- Highlight 1: IndiaAI Innovation Challenge -->
+          <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+            <a href="events.html#featured-award" class="block bg-white dark:bg-black p-8 rounded-[20px] shadow-award mb-8 wow fadeInUp transition-all hover:shadow-lg hover:-translate-y-1 h-full" data-wow-delay=".2s">
+              <div class="flex items-center mb-4">
+                <span class="w-14 h-14 rounded-full bg-white shadow-sm flex items-center justify-center mr-4 overflow-hidden flex-shrink-0">
+                  <img src="images/brands/indiaai.png" alt="IndiaAI" class="w-10 h-10 object-contain" />
+                </span>
+                <span class="inline-block font-bold text-xs uppercase tracking-wider text-primary bg-primary bg-opacity-10 rounded-full px-3 py-1">Top 30 Grant</span>
+              </div>
+              <h3 class="font-bold text-xl text-black dark:text-white mb-3">
+                IndiaAI Innovation Challenge 2026
+              </h3>
+              <p class="text-body-color text-sm mb-4">
+                Selected as one of the Top 30 AI startups nationally and felicitated by the Hon'ble Minister of Electronics & IT.
+              </p>
+              <span class="inline-flex items-center font-bold text-sm text-primary">
+                View Award Details
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Highlight 2: India AI Impact Summit -->
+          <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+            <a href="events.html#press-coverage" class="block bg-white dark:bg-black p-8 rounded-[20px] shadow-award mb-8 wow fadeInUp transition-all hover:shadow-lg hover:-translate-y-1 h-full" data-wow-delay=".25s">
+              <div class="flex items-center mb-4">
+                <span class="w-14 h-14 rounded-full bg-white shadow-sm flex items-center justify-center mr-4 overflow-hidden flex-shrink-0">
+                  <img src="images/brands/impact-summit.png" alt="IndiaAI Impact Summit" class="w-10 h-10 object-contain" />
+                </span>
+                <span class="inline-block font-bold text-xs uppercase tracking-wider text-primary bg-primary bg-opacity-10 rounded-full px-3 py-1">Press Coverage</span>
+              </div>
+              <h3 class="font-bold text-xl text-black dark:text-white mb-3">
+                IndiaAI Impact Summit 2026
+              </h3>
+              <p class="text-body-color text-sm mb-4">
+                Featured across official LinkedIn, X, Instagram & YouTube handles of IndiaAI during the flagship national summit.
+              </p>
+              <span class="inline-flex items-center font-bold text-sm text-primary">
+                See Media Coverage
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Highlight 3: AIKosh -->
+          <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+            <a href="events.html#aikosh" class="block bg-white dark:bg-black p-8 rounded-[20px] shadow-award mb-8 wow fadeInUp transition-all hover:shadow-lg hover:-translate-y-1 h-full" data-wow-delay=".3s">
+              <div class="flex items-center mb-4">
+                <span class="w-14 h-14 rounded-full bg-white shadow-sm flex items-center justify-center mr-4 overflow-hidden flex-shrink-0">
+                  <img src="images/brands/ai-kosh.png" alt="AIKosh" class="w-10 h-10 object-contain" />
+                </span>
+                <span class="inline-block font-bold text-xs uppercase tracking-wider text-primary bg-primary bg-opacity-10 rounded-full px-3 py-1">Official Platform</span>
+              </div>
+              <h3 class="font-bold text-xl text-black dark:text-white mb-3">
+                Featured on AIKosh
+              </h3>
+              <p class="text-body-color text-sm mb-4">
+                Listed as an official use-case on AIKosh, the Government of India's national AI repository.
+              </p>
+              <span class="inline-flex items-center font-bold text-sm text-primary">
+                See on Events Page
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="text-center mt-4 wow fadeInUp" data-wow-delay=".35s">
+          <a
+            href="events.html"
+            class="inline-flex items-center font-bold text-base text-white bg-primary rounded-xl py-4 px-10 transition-all hover:shadow-primary-hover"
+          >
+            View All Events & Awards
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- ===== Recognition Highlights end ===== -->
 
     <!-- ===== Brands start ===== -->
     <section class="pt-12">
@@ -1571,10 +1776,28 @@
                   </li>
                   <li>
                     <a
-                      href="#about"
+                      href="about.html"
                       class="font-semibold text-base text-body-color hover:text-primary inline-block"
                     >
                       About
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="events.html"
+                      class="font-semibold text-base text-body-color hover:text-primary inline-block"
+                    >
+                      Events & Awards
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://chromewebstore.google.com/detail/readabled/peogpficbljpkkhjochnjeiinflkeobe"
+                      target="_blank"
+                      rel="noopener"
+                      class="font-semibold text-base text-body-color hover:text-primary inline-block"
+                    >
+                      Chrome Extension
                     </a>
                   </li>
                   <li>
@@ -1600,11 +1823,6 @@
                       Visit the App
                     </a>
                   </li>
-
-                  <!-- <p class="flex items-center justify-center text-base font-medium text-white bg-primary rounded-lg py-3 px-7 transition-all w-[180px]"
-                  aria-disabled="true">
-                  Launcing Soon!
-                </p> -->
                 </ul>
               </div>
             </div>
